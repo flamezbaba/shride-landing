@@ -4,10 +4,13 @@ import { useMediaQuery } from "@reactuses/core";
 import { useEffect, useState } from "react";
 import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
-
+import FooterHero from "@/components/FooterHero";
 
 export default function Ride() {
-  const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 850px)", false);
+  const isMobile = useMediaQuery(
+    "(min-width: 0px) and (max-width: 850px)",
+    false
+  );
   const [animateValues, setAnimateValues] = useState<{
     heroRight: number;
     marginMove: number;
@@ -29,7 +32,7 @@ export default function Ride() {
     <div className="w-full lg:mt-10 overflow-hidden">
       <section className="w-full flex md:flex-col justify-between pl-[50px] md:pl-[20px]">
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
-          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-center font-bold">
+          <p className="text-[5em] leading-[0.99] md:text-[2.5em] md:text-center font-bold">
             Experience the difference with <br />
             <span className="text-[var(--primary-color)]">Shride</span>.
           </p>
@@ -50,8 +53,10 @@ export default function Ride() {
         </div>
 
         <div className="w-1/2 md:w-full">
-          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-medium">
-            Your ride is just few taps away.
+          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-bold">
+            <span className="text-[var(--primary-color)]">Your ride</span> is
+            just a few taps{" "}
+            <span className="text-[var(--primary-color)]">away.</span>
           </p>
 
           <div className="mt-5 space-y-2">
@@ -67,6 +72,10 @@ export default function Ride() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mb-20">
+        <FooterHero bgColor="#ffff00" textColor="#131313" />
       </section>
     </div>
   );

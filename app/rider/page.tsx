@@ -4,9 +4,13 @@ import { useMediaQuery } from "@reactuses/core";
 import { useEffect, useState } from "react";
 import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
+import FooterHero from "@/components/FooterHero";
 
 export default function Business() {
-  const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 850px)", false);
+  const isMobile = useMediaQuery(
+    "(min-width: 0px) and (max-width: 850px)",
+    false
+  );
   const [animateValues, setAnimateValues] = useState<{
     heroRight: number;
     marginMove: number;
@@ -37,8 +41,15 @@ export default function Business() {
           </p>
 
           <div className="flex items-center justify-start gap-10 mt-5">
-            <PlayStoreLink />
-            <AppleStoreLink />
+            {/* <PlayStoreLink /> */}
+            {/* <AppleStoreLink /> */}
+            <a
+              className="inline-flex gap-2 text-sm items-center rounded-full bg-[#131313] px-5 py-3 text-white hover:scale-95 duration-300"
+              href="https://shrideapp.com/shride-rider.apk"
+            >
+              <img src="/img/google.png" className="w-[15px]" alt="" />
+              Download Rider app
+            </a>
           </div>
         </div>
         <div className="w-1/2 md:w-full md:mt-[30px] relative">
@@ -48,18 +59,17 @@ export default function Business() {
 
       <section className="w-full flex md:flex-col justify-between place-items-center px-[50px] md:px-[20px] py-[130px] md:py-[90px]">
         <div className="w-1/2 md:w-full">
-          <img src="/img/rider/2.png" className=" w-[70%] md:w-[80%]" alt="" />
+          <img src="/img/rider/2.png" className=" w-[80%] md:w-[80%]" alt="" />
         </div>
 
         <div className="w-1/2 md:w-full">
-          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-medium">
-            Ride,
-            Deliver <br />
-            or do both
+          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-bold">
+            <span className="text-[var(--primary-color)]">Ride, </span>
+            Deliver or do both!
           </p>
 
           <div className="mt-5 space-y-2">
-            <div className="flex gap-2 items-center font-medium">
+            <div className="flex gap-2 items-center font-bold">
               <p className="text-xl md:text-lg font-light leading-relaxed">
                 Say goodbye to riding around wasting expensive petrol to find
                 passengers. Make money on your own terms as the boss, work on
@@ -73,7 +83,9 @@ export default function Business() {
         </div>
       </section>
 
-      
+      <section className="">
+        <FooterHero bgColor="#00a205" textColor="#fff" />
+      </section>
     </div>
   );
 }

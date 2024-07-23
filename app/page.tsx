@@ -11,26 +11,52 @@ import bg1 from "@/public/img/home/bg1.png";
 import { useEffect, useState } from "react";
 import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
+import ComingSoonLink from "@/components/ComingSoonLink";
 import Faqs from "@/components/Faqs";
+import FooterHero from "@/components/FooterHero";
 
 const SERVICES = [
   {
-    title: "Rides",
-    subTitle: "Request for rides<br /> get a rider immediately",
+    title: "Rides.",
+    subTitle: "Request for rides,<br /> get a rider immediately.",
     image: "/img/services/bike.png",
     link: "#",
+    soon: false,
   },
   {
-    title: "Deliveries",
-    subTitle: "Send and Receive<br /> packages faster anywhere",
+    title: "Deliveries.",
+    subTitle: "Send and Receive<br /> packages faster anywhere.",
     image: "/img/services/d.png",
     link: "#",
+    soon: false,
   },
   {
-    title: "Deliveries",
-    subTitle: "Comfortable ride share<br /> made easy anytime always",
+    title: "Trike.",
+    subTitle: "Comfortable ride share<br /> made easy anytime.",
     image: "/img/services/t.png",
     link: "#",
+    soon: true,
+  },
+  {
+    title: "Business.",
+    subTitle: "Grow, get feedback<br /> and manage your business.",
+    image: "/img/services/b.png",
+    link: "#",
+    soon: true,
+  },
+  {
+    title: "Groceries.",
+    subTitle: "All the essentials at<br /> your fingertips anytime.",
+    image: "/img/services/g.png",
+    link: "#",
+    soon: true,
+  },
+  {
+    title: "Eats.",
+    subTitle: "Food from your favorite<br /> restaurant delivered fast.",
+    image: "/img/services/e.png",
+    link: "#",
+    soon: true,
   },
 ];
 
@@ -43,7 +69,7 @@ export default function Home() {
     heroRight: number;
     marginMove: number;
   }>({
-    heroRight: 130,
+    heroRight: 30,
     marginMove: 100,
   });
 
@@ -60,7 +86,7 @@ export default function Home() {
     <div className="w-full overflow-hidden">
       <section className="w-full flex md:flex-col justify-between pl-[50px] md:pl-[20px]">
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
-          <p className="text-[5em] leading-tight md:text-[3em] md:text-center font-bold">
+          <p className="text-[5em] leading-[1.1] md:text-[3em] md:text-center font-medium">
             Go anywhere
             <br /> with{" "}
             <span className="text-[var(--primary-color)]">Shride</span>,
@@ -71,7 +97,7 @@ export default function Home() {
             <div className="flex gap-2 items-center font-medium">
               <IoIosCheckmarkCircleOutline color="#01a206" size={15} />
               <p className="text-lg font-light">
-                Order ride from the comfort of your home.
+                Order a ride from the comfort of your home.
               </p>
             </div>
             <div className="flex gap-2 items-center font-medium">
@@ -81,11 +107,16 @@ export default function Home() {
                 Get picked up from your doorstep anytime.{" "}
               </p>
             </div>
+            <div className="flex gap-2 items-center font-medium">
+              <IoIosCheckmarkCircleOutline color="#01a206" size={15} />
+              <p className="text-lg font-light">Add a stop to your ride.</p>
+            </div>
           </div>
 
           <div className="flex items-center justify-start gap-10 mt-5">
-            <PlayStoreLink />
-            <AppleStoreLink />
+            {/* <PlayStoreLink />
+            <AppleStoreLink /> */}
+            <ComingSoonLink />
           </div>
         </div>
         <div className="w-1/2 md:w-full relative">
@@ -96,13 +127,13 @@ export default function Home() {
             initial={{ opacity: 0, right: -200 }}
             animate={{ opacity: 1, right: animateValues.heroRight }}
             transition={{ duration: 3, type: "spring" }}
-            className="w-[300px] md:w-[150px] absolute bottom-0"
+            className="w-[400px] md:w-[210px] absolute bottom-0"
           />
         </div>
       </section>
 
       <section className="py-[50px] px-[50px]">
-        <header className="text-center text-5xl md:text-3xl font-medium">
+        <header className="text-center text-5xl md:text-3xl font-bold">
           Our Services
         </header>
         <div className="w-full grid grid-cols-3 md:grid-cols-1 gap-10 md:gap-2">
@@ -111,8 +142,15 @@ export default function Home() {
               key={index}
               className="mt-10 h-[200px] rounded-2xl bg-[#F5F4F7] overflow-hidden relative"
             >
+              {i.soon && (
+                <div className="w-full absolute right-[-30%] h-[30px] rotate-[30deg] bg-red-600 flex justify-center items-center">
+                  <p className="text-white text-xs md:text-[0.60rem] ml-[calc(15%)] font-medium text-center">
+                    Coming Soon
+                  </p>
+                </div>
+              )}
               <div className="px-10 pt-10">
-                <p className="text-left text-2xl md:text-xl font-medium">
+                <p className="text-left text-2xl md:text-xl font-bold">
                   {i.title}
                 </p>
               </div>
@@ -130,7 +168,7 @@ export default function Home() {
 
       <section className="w-full flex md:flex-col justify-between place-items-center pl-[50px] md:px-[20px] py-[30px] md:py-[20px]">
         <div className="w-1/2 md:w-full md:translate-y-[340px]">
-          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-medium">
+          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-bold">
             Become a rider
           </p>
 
@@ -145,9 +183,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-16">
             <a
-              href=""
+              href="/coming-soon"
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
@@ -178,7 +216,7 @@ export default function Home() {
           />
         </div>
         <div className="w-1/2 md:w-full ">
-          <p className="text-[4em] md:text-left leading-tight md:text-[2em] font-medium">
+          <p className="text-[4em] md:text-left leading-tight md:text-[2em] font-bold">
             Become a Merchant
           </p>
 
@@ -195,7 +233,7 @@ export default function Home() {
 
           <div className="mt-8">
             <a
-              href=""
+              href="/coming-soon"
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
@@ -206,7 +244,7 @@ export default function Home() {
 
       <section className="w-full flex md:flex-col justify-between place-items-center pl-[50px] md:pl-[20px] py-[30px] md:py-[60px]">
         <div className="w-1/2 md:w-full md:translate-y-[300px]">
-          <p className="text-[4em] md:text-left leading-tight md:text-[2em] font-medium">
+          <p className="text-[4em] md:text-left leading-tight md:text-[2em] font-bold">
             Try the App
           </p>
 
@@ -221,13 +259,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8">
-            <a
+          <div className="mt-5">
+            {/* <a
               href=""
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
-            </a>
+            </a> */}
+            <ComingSoonLink />
           </div>
         </div>
         <div className="w-1/2 md:w-full relative md:-translate-y-[270px]">
@@ -244,6 +283,10 @@ export default function Home() {
 
       <section className="w-full px-[50px] md:px-[20px] py-[50px]">
         <Faqs />
+      </section>
+
+      <section className="mb-20">
+        <FooterHero bgColor="#ff5001" textColor="#fff" />
       </section>
     </div>
   );

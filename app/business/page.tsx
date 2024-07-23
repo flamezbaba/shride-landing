@@ -5,6 +5,7 @@ import { useMediaQuery } from "@reactuses/core";
 import { useEffect, useState } from "react";
 import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
+import FooterHero from "@/components/FooterHero";
 
 export default function Business() {
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 850px)", true);
@@ -32,7 +33,7 @@ export default function Business() {
           <p className="text-[4em] leading-tight md:text-[2.5em] md:text-center font-bold">
             Small <span className="text-[var(--primary-color)]">Business?</span>{" "}
             <br />
-            We dey for{" "}<span className="text-[var(--primary-color)]"> you!</span>.
+            We dey for{" "}<span className="text-[var(--primary-color)]"> you!</span>
           </p>
 
           <div className="flex items-center justify-start gap-10 mt-5">
@@ -51,7 +52,7 @@ export default function Business() {
         </div>
 
         <div className="w-1/2 md:w-full">
-          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-medium">
+          <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-bold">
             Sending
             <br/>
             <span className="text-[var(--primary-color)]"> Packages?</span>
@@ -69,6 +70,10 @@ export default function Business() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="">
+        <FooterHero bgColor="#ff0000" textColor="#fff" />
       </section>
     </div>
   );
