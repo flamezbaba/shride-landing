@@ -22,6 +22,7 @@ const SERVICES = [
     image: "/img/services/bike.png",
     link: "#",
     soon: false,
+    bg: "#e1eee1"
   },
   {
     title: "Deliveries.",
@@ -29,6 +30,7 @@ const SERVICES = [
     image: "/img/services/d.png",
     link: "#",
     soon: false,
+    bg: "#fbe1e1"
   },
   {
     title: "Trike.",
@@ -36,6 +38,7 @@ const SERVICES = [
     image: "/img/services/t.png",
     link: "#",
     soon: true,
+    bg: "#e1e1fb"
   },
   {
     title: "Business.",
@@ -43,6 +46,7 @@ const SERVICES = [
     image: "/img/services/b.png",
     link: "#",
     soon: true,
+    bg: "#fbfbe1"
   },
   {
     title: "Groceries.",
@@ -50,6 +54,7 @@ const SERVICES = [
     image: "/img/services/g.png",
     link: "#",
     soon: true,
+    bg: "#ebfbec"
   },
   {
     title: "Eats.",
@@ -57,6 +62,7 @@ const SERVICES = [
     image: "/img/services/e.png",
     link: "#",
     soon: true,
+    bg: "#fbe9e1"
   },
 ];
 
@@ -93,7 +99,7 @@ export default function Home() {
             <br /> Anytime.
           </p>
 
-          <div className="mt-5 space-y-2">
+          <div className="mt-5 space-y-2" id="downloadapp">
             <div className="flex gap-2 items-center font-medium">
               <IoIosCheckmarkCircleOutline color="#01a206" size={15} />
               <p className="text-lg font-light">
@@ -114,9 +120,9 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-start gap-10 mt-5">
-            {/* <PlayStoreLink />
-            <AppleStoreLink /> */}
-            <ComingSoonLink />
+            <PlayStoreLink />
+            <AppleStoreLink />
+            {/* <ComingSoonLink /> */}
           </div>
         </div>
         <div className="w-1/2 md:w-full relative">
@@ -140,7 +146,10 @@ export default function Home() {
           {SERVICES.map((i, index) => (
             <div
               key={index}
-              className="mt-10 h-[200px] rounded-2xl bg-[#F5F4F7] overflow-hidden relative"
+              style={{
+                backgroundColor: i.bg
+              }}
+              className="mt-10 h-[200px] rounded-2xl overflow-hidden relative"
             >
               {i.soon && (
                 <div className="w-full absolute right-[-30%] h-[30px] rotate-[30deg] bg-red-600 flex justify-center items-center">
@@ -185,7 +194,7 @@ export default function Home() {
 
           <div className="mt-16">
             <a
-              href="/coming-soon"
+              href="https://shrideapp.com/shride-rider.apk"
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
@@ -233,7 +242,7 @@ export default function Home() {
 
           <div className="mt-8">
             <a
-              href="/coming-soon"
+              href="/ride"
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
@@ -260,13 +269,13 @@ export default function Home() {
           </div>
 
           <div className="mt-5">
-            {/* <a
-              href=""
+            <a
+              href="#downloadapp"
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
-            </a> */}
-            <ComingSoonLink />
+            </a>
+            {/* <ComingSoonLink /> */}
           </div>
         </div>
         <div className="w-1/2 md:w-full relative md:-translate-y-[270px]">

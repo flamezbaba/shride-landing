@@ -33,9 +33,9 @@ export default function Header() {
 
   return (
     <div className="w-full px-[50px] md:px-[20px] py-[10px] bg-white flex justify-between items-center md:mb-10">
-      <div className="">
+      <a href="/" className="">
         <img src="/img/shride-logo-black.png" width="100" alt="" />
-      </div>
+      </a>
       {isMobile && (
         <div className="">
           <IoIosMenu onClick={() => setMenuOpen(true)} size={30} />

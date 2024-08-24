@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
           <div className="">
             <a
-              href="/coming-soon"
+              href="/#downloadapp"
               className="inline-flex rounded-full bg-white px-5 py-3 text-[#131313] hover:scale-95 duration-300"
             >
               Get the Shride App
