@@ -45,7 +45,7 @@ export default function Business() {
             {/* <AppleStoreLink /> */}
             <a
               className="inline-flex gap-2 text-sm items-center rounded-full bg-[#131313] px-5 py-3 text-white hover:scale-95 duration-300"
-              href="https://shrideapp.com/shride-rider.apk"
+              href="https://play.google.com/store/apps/details?id=com.shride.riderapp" target="_blank"
             >
               <img src="/img/google.png" className="w-[15px]" alt="" />
               Download Rider app

@@ -21,8 +21,11 @@ export default function Footer() {
         <div className="w-full grid grid-cols-4 md:grid-cols-1 md:gap-10 py-5 border-b-[2px] border-b-neutral-900">
           <div className="">
             <img src="/img/shride-logo-white.png" width="100" alt="" />
-            <p className="mt-10">6, Ilupeju road, Oluyole Sharp Corner Ibadan.</p>
-            <p className="mt-5">0706 067 4506</p>
+            <p className="mt-10">
+              6, Ilupeju road, Oluyole Sharp Corner Ibadan.
+            </p>
+            <p className="mt-5">
+              <a href="tel:08064223253" className="">0806 4223 253</a> </p>
           </div>
           <div className="">
             <p className="font-bold">Our Services</p>
@@ -108,7 +111,7 @@ export default function Footer() {
         </div>
         <div className="w-full py-5 flex md:flex-col text-sm font-light  md:gap-6 justify-between items-center">
           <div className="flex gap-5 items-center">
-          <p className="">&copy; 2024 Shride</p>
+            <p className="">&copy; 2024 Shride</p>
           </div>
           <div className="flex items-center md:flex-wrap gap-5">
             {/* <a href="" className="">
@@ -122,7 +125,6 @@ export default function Footer() {
             <a href="" className="">
               Cookies
             </a> */}
-
           </div>
         </div>
       </footer>

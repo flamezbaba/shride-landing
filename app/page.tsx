@@ -22,7 +22,7 @@ const SERVICES = [
     image: "/img/services/bike.png",
     link: "#",
     soon: false,
-    bg: "#e1eee1"
+    bg: "#e1eee1",
   },
   {
     title: "Deliveries.",
@@ -30,7 +30,7 @@ const SERVICES = [
     image: "/img/services/d.png",
     link: "#",
     soon: false,
-    bg: "#fbe1e1"
+    bg: "#fbe1e1",
   },
   {
     title: "Trike.",
@@ -38,7 +38,7 @@ const SERVICES = [
     image: "/img/services/t.png",
     link: "#",
     soon: true,
-    bg: "#e1e1fb"
+    bg: "#e1e1fb",
   },
   {
     title: "Business.",
@@ -46,7 +46,7 @@ const SERVICES = [
     image: "/img/services/b.png",
     link: "#",
     soon: true,
-    bg: "#fbfbe1"
+    bg: "#fbfbe1",
   },
   {
     title: "Groceries.",
@@ -54,7 +54,7 @@ const SERVICES = [
     image: "/img/services/g.png",
     link: "#",
     soon: true,
-    bg: "#ebfbec"
+    bg: "#ebfbec",
   },
   {
     title: "Eats.",
@@ -62,7 +62,7 @@ const SERVICES = [
     image: "/img/services/e.png",
     link: "#",
     soon: true,
-    bg: "#fbe9e1"
+    bg: "#fbe9e1",
   },
 ];
 
@@ -147,7 +147,7 @@ export default function Home() {
             <div
               key={index}
               style={{
-                backgroundColor: i.bg
+                backgroundColor: i.bg,
               }}
               className="mt-10 h-[200px] rounded-2xl overflow-hidden relative"
             >
@@ -194,7 +194,8 @@ export default function Home() {
 
           <div className="mt-16">
             <a
-              href="https://shrideapp.com/shride-rider.apk"
+              target="_blank"
+              href="https://play.google.com/store/apps/details?id=com.shride.riderapp"
               className="inline-flex rounded-full bg-[var(--primary-color)] px-5 py-3 text-white hover:scale-95 duration-300"
             >
               Get Started
