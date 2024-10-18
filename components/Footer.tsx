@@ -25,7 +25,10 @@ export default function Footer() {
               6, Ilupeju road, Oluyole Sharp Corner Ibadan.
             </p>
             <p className="mt-5">
-              <a href="tel:08064223253" className="">0806 4223 253</a> </p>
+              <a href="tel:08064223253" className="">
+                0806 4223 253
+              </a>{" "}
+            </p>
           </div>
           <div className="">
             <p className="font-bold">Our Services</p>

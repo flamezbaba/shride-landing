@@ -20,7 +20,7 @@ const SERVICES = [
     title: "Rides.",
     subTitle: "Request for rides,<br /> get a rider immediately.",
     image: "/img/services/bike.png",
-    link: "#",
+    link: "/ride",
     soon: false,
     bg: "#e1eee1",
   },
@@ -28,7 +28,7 @@ const SERVICES = [
     title: "Deliveries.",
     subTitle: "Send and Receive<br /> packages faster anywhere.",
     image: "/img/services/d.png",
-    link: "#",
+    link: "/delivery",
     soon: false,
     bg: "#fbe1e1",
   },
@@ -36,8 +36,8 @@ const SERVICES = [
     title: "Trike.",
     subTitle: "Comfortable ride share<br /> made easy anytime.",
     image: "/img/services/t.png",
-    link: "#",
-    soon: true,
+    link: "/trike",
+    soon: false,
     bg: "#e1e1fb",
   },
   {
@@ -144,7 +144,7 @@ export default function Home() {
         </header>
         <div className="w-full grid grid-cols-3 md:grid-cols-1 gap-10 md:gap-2">
           {SERVICES.map((i, index) => (
-            <div
+            <a href={i.link}
               key={index}
               style={{
                 backgroundColor: i.bg,
@@ -170,7 +170,7 @@ export default function Home() {
                 ></p>
                 <img src={i.image} width="100" alt="" />
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
