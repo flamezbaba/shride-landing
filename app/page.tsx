@@ -3,17 +3,20 @@
 import { motion } from "framer-motion";
 import { useMediaQuery } from "@reactuses/core";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import k2 from "@/public/img/home/2.png";
+// import k2 from "@/public/img/home/2.png";
 import hb from "@/public/img/home/3.png";
 import hm from "@/public/img/home/m.png";
 import ht from "@/public/img/home/t.png";
-import bg1 from "@/public/img/home/bg1.png";
+// import bg1 from "@/public/img/home/bg1.png";
 import { useEffect, useState } from "react";
 import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
-import ComingSoonLink from "@/components/ComingSoonLink";
+// import ComingSoonLink from "@/components/ComingSoonLink";
 import Faqs from "@/components/Faqs";
 import FooterHero from "@/components/FooterHero";
+import HomeLottie from "@/components/HomeLottie";
+
+
 
 const SERVICES = [
   {
@@ -44,8 +47,8 @@ const SERVICES = [
     title: "Business.",
     subTitle: "Grow, get feedback<br /> and manage your business.",
     image: "/img/services/b.png",
-    link: "#",
-    soon: true,
+    link: "/business",
+    soon: false,
     bg: "#fbfbe1",
   },
   {
@@ -126,7 +129,7 @@ export default function Home() {
           </div>
         </div>
         <div className="w-1/2 md:w-full relative">
-          <img src="/img/home/1.png" className="md:w-[80%]" alt="" />
+          {/* <img src="/img/home/1.png" className="md:w-[80%]" alt="" />
 
           <motion.img
             src={k2.src}
@@ -134,7 +137,9 @@ export default function Home() {
             animate={{ opacity: 1, right: animateValues.heroRight }}
             transition={{ duration: 3, type: "spring" }}
             className="w-[400px] md:w-[210px] absolute bottom-0"
-          />
+          /> */}
+           <HomeLottie />
+
         </div>
       </section>
 
