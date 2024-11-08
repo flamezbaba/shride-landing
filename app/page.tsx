@@ -95,7 +95,7 @@ export default function Home() {
     <div className="w-full overflow-hidden">
       <section className="w-full flex md:flex-col justify-between pl-[50px] md:pl-[20px]">
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
-          <p className="text-[5em] leading-[1.1] md:text-[3em] md:text-center font-medium">
+          <p className="text-[5em] leading-[1.1] md:text-[3em] md:text-center font-bold">
             Go anywhere
             <br /> with{" "}
             <span className="text-[var(--primary-color)]">Shride</span>,

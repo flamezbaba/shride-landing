@@ -70,8 +70,7 @@ export default function Delivery() {
         <div className="w-1/2 md:w-full">
           <p className="text-[4em] leading-tight md:text-[2.5em] md:text-left font-bold">
             <span className="text-[var(--primary-color)]">2FA</span> for you to
-            secure your
-            <br />
+            secure your{" "}
             <span className="text-[var(--primary-color)]"> Package.</span>
           </p>
 
@@ -118,13 +117,10 @@ export default function Delivery() {
       <section className="w-full flex md:flex-col justify-between mt-15 px-[50px] md:px-[20px]">
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
           <p className="text-[4em] leading-tight md:text-[2.5em] md:text-center font-bold">
-          Small, medium or large <span className="text-[var(--primary-color)]">Items?</span> 
-            
-            <br />
-            we've got you.
+            Small, medium or large{" "}
+            <span className="text-[var(--primary-color)]">Items?</span>
+             {' '}we've got you.
           </p>
-
-         
         </div>
         <div className="w-1/2 md:w-full md:mt-[30px] relative">
           <img

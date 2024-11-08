@@ -69,10 +69,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="" className="">
-                  Contact Us
+                <a href="/terms" className="">
+                  Terms of Service
                 </a>
               </li>
+              
             </ul>
           </div>
         </div>
