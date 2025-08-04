@@ -117,6 +117,106 @@ export default function Trike() {
         </div>
       </section>
 
+      <section className="w-full flex md:flex-col justify-between px-[50px] md:px-[20px] mt-10">
+        <div className="w-full flex flex-col justify-center md:items-center">
+          <p className="text-[3em] leading-tight md:text-[2.5em] md:text-center font-bold">
+            Routes Near me
+          </p>
+
+          <div className="flex items-center justify-start gap-10 mt-5">
+            <img src="/img/mp.png" className="w-[50%] md:w-[80%]" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full flex md:flex-col justify-between px-[50px] md:px-[20px] mt-10">
+        <div className="w-full flex flex-col justify-center md:items-center">
+          <p className="text-[3em] leading-tight md:text-[2.5em] md:text-center font-bold">
+            Routes
+          </p>
+
+          <div className="flex flex-wrap md:gap-5 gap-20 mt-5">
+            <div className="">
+              <p className="">
+                New garage
+                <br />
+                <br />
+                Orita
+                <br />
+                <br />
+                Challenge
+                <br />
+                <br />
+                Molete
+                <br />
+                <br />
+                Oja-Oba
+                <br />
+                <br />
+                Bere Gate
+              </p>
+            </div>
+
+            <div className="">
+              <p className="">
+                Challenge
+                <br />
+                <br />
+                Ringroad
+                <br />
+                <br />
+                Mile 110
+                <br />
+                <br />
+                Aleshinloye
+                <br />
+                <br />
+                J Allen
+                <br />
+                <br />
+                Dugbe
+                <br />
+                <br />
+                Queen’s Cinema
+                <br />
+                <br />
+                Mokola
+              </p>
+            </div>
+
+            <div className="">
+              <p className="">
+                Mokola
+                <br />
+                <br />
+                Uncle Joe
+                <br />
+                <br />
+                Veterinary
+                <br />
+                <br />
+                Ajibade
+                <br />
+                <br />
+                Sango
+                <br />
+                <br />
+                Ventura
+                <br />
+                <br />
+                UI
+                <br />
+                <br />
+                Orogun
+                <br />
+                <br />
+                Ojoo
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="">
         <FooterHero bgColor="#00a205" textColor="#fff" />
       </section>

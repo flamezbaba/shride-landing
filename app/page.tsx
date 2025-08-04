@@ -106,19 +106,19 @@ export default function Home() {
             <div className="flex gap-2 items-center font-medium">
               <IoIosCheckmarkCircleOutline color="#01a206" size={15} />
               <p className="text-lg font-light">
-                Order a ride from the comfort of your home.
+              Request a ride from the comfort of your home.
               </p>
             </div>
             <div className="flex gap-2 items-center font-medium">
               <IoIosCheckmarkCircleOutline color="#01a206" size={15} />
               <p className="text-lg font-light">
                 {" "}
-                Get picked up from your doorstep anytime.{" "}
+                ⁠Add a stop or schedule your ride ahead
               </p>
             </div>
             <div className="flex gap-2 items-center font-medium">
               <IoIosCheckmarkCircleOutline color="#01a206" size={15} />
-              <p className="text-lg font-light">Add a stop to your ride.</p>
+              <p className="text-lg font-light">Send and receive packages across Ibadan on bike or keke.</p>
             </div>
           </div>
 

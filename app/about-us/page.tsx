@@ -10,7 +10,7 @@ export default function Business() {
 
   return (
     <div className="w-full lg:mt-10 overflow-hidden">
-       <section className="w-full flex md:flex-col justify-between items-center gap-10 pl-[50px] md:pl-[20px]">
+      <section className="w-full flex md:flex-col justify-between items-center gap-10 pl-[50px] md:pl-[20px]">
         {isMobile && (
           <div className="w-1/2 md:w-full md:mt-[30px] relative flex justify-center">
             <img src="/img/team.png" className="w-[70%] md:w-[80%]" alt="" />
@@ -59,31 +59,30 @@ export default function Business() {
         <div className="w-1/2 md:w-full px-10 md:px-5 flex flex-col justify-center md:items-center">
           <div className="flex gap-2 items-center font-medium">
             <p className="text-xl md:text-lg font-light leading-relaxed">
-              We&apos;ve been perfecting our services for over 7 years. So trust us,
-              we know a thing or two about reliable and efficient
+              We&apos;ve been perfecting our services for over 7 years. So trust
+              us, we know a thing or two about reliable and efficient
               transportation.
               <br />
               Every ride you book with Shride is driven by professional and
               courteous riders who prioritize user safety and comfort.
               <br />
               <br />
-              But our passion for excellence doesn&apos;t stop there, our state of
-              the art ride service ensures that your trips goes smoothly and
+              But our passion for excellence doesn&apos;t stop there, our state
+              of the art ride service ensures that your trips goes smoothly and
               rider arrives quickly.
               <br />
               We also ensure your packages arrive promptly and securely, no
-              matter the destination. 
-              <br/>
-              We hope you get the picture. We&apos;re
-              enthusiasts about making you happy with the best service on the
-              road and beyond!
+              matter the destination.
+              <br />
+              We hope you get the picture. We&apos;re enthusiasts about making
+              you happy with the best service on the road and beyond!
               <br />
               #TeamShride!
             </p>
           </div>
         </div>
       </section>
-      
+
       <section className="w-full flex md:flex-col justify-between items-center gap-10 pl-[50px] md:pl-[20px]">
         {isMobile && (
           <div className="w-1/2 md:w-full md:mt-[30px] relative flex justify-center items-center">
@@ -170,51 +169,135 @@ export default function Business() {
             <span className="text-[var(--primary-color)]">Happening. </span>
           </p>
         </header>
-        <div className="w-full mt-10 flex md:flex-wrap gap-10">
-          <div className="flex flex-col justify-between rounded-3xl bg-[#FCE7FC] px-5 pt-5 pb-10">
+        <div className="w-full mt-10 h-[900px] md:h-[1000px] flex flex-col s-none flex-wrap overflow-x-scroll overflow-y-hidden gap-10 md:gap-5">
+
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#F1FFFC] px-5 pt-5 pb-10">
             <div className="">
-              <p className="text-[#DE13E2] text-2xl font-semibold">
-                Prelaunch Riders Onboarding.
+              <p className="text-black text-2xl font-semibold">
+                Shride eyes Electric Future.
               </p>
-              <img src="/img/about/a1.png" className="mt-5" alt="" />
-              <p className="mt-3">
-                in this era of technology, transportation should not be a
-                struggle. Everyday transportation with modern day approach is
-                one thing we strongly believe at Shride.
+              <img src="/img/about/b4.png" className="mt-5" alt="" />
+              <p className="mt-3 font-bold">
+                Shride’s CEO in Talks with Spiro:
               </p>
               <p className="mt-2">
-                We took our enthusiasm to the streets to onboard bikers, and
-                they were excited to be part of the moving train of modern day
-                transportation.
+                In a bid to revolutionize mobility in Nigeria from Ibadan,
+                Shride’s CEO Hammed Peacemark has entered discussions with
+                Spiro, a leading electric bike vendor in Africa, to explore a
+                full transition to electric bikes for hailing. This potential
+                partnership signals Shride’s commitment to sustainability and
+                affordability in urban transportation.
+                <br />
+                <br />
+                "Electric is the future," the CEO stated. "We want to lead that
+                change in Africa and beyond." This move will reduce emissions,
+                lower running costs, and offer riders a cleaner, more efficient
+                way to move around the city.
+                <br />
+                Stay tuned—Shride will soon be riding into a greener tomorrow.
               </p>
             </div>
             <div className="mt-20">
-              <p className="text-xs text-right">August Prelaunch 2024</p>
+              <p className="text-xs text-right">March Digest 2025</p>
             </div>
           </div>
 
-          <div className="flex flex-col justify-between rounded-3xl bg-[#C2E9C3] px-5 pt-5 pb-10">
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#F1F6FF] px-5 pt-5 pb-10">
             <div className="">
-              <p className="text-[#00A205] text-2xl font-semibold">
-                Community Activities.
+              <p className="text-black text-2xl font-semibold">
+                Increased Drivers Pay.
               </p>
-              <img src="/img/about/a2.png" className="mt-5" alt="" />
-              <p className="mt-3">
-                We were at the IbadanTechExpo. We support events and activities
-                that engages the community. We gave free ride vouchers, bags,
-                jotters etc to grace the event!
+              <img src="/img/about/b3.png" className="mt-5" alt="" />
+              <p className="mt-3 font-bold">
+                Shride Riders, Bigger Earnings Ahead!
               </p>
               <p className="mt-2">
-                5,000 social media impression, yes, we are proud of our small
-                wins, and the beautiful city of Ibadan welcomed us.
+                At Shride, we believe our riders are the heartbeat of our
+                service and it's only right they earn what they deserve and
+                more! That’s why we’re excited to share some good news per rider
+                earnings: rider earnings have increased!
+                <br />
+                <br />
+                With improved ride demand, new location expansions, and better
+                commission structures, Shride riders are now making more per
+                trip. We're also introducing referral bonuses and weekly quest
+                incentives to help riders grow their income even faster and
+                independently.
+                <br />
+                <br />
+                Whether you're riding full-time or part-time, this is the
+                perfect time to be on the road with Shride.
+                <br />
+                <br />
+                Drive more. Earn more. Live better.
               </p>
             </div>
             <div className="mt-20">
-              <p className="text-xs text-right">September Digest 2024</p>
+              <p className="text-xs text-right">February Digest 2025</p>
             </div>
           </div>
 
-          <div className="flex flex-col justify-between rounded-3xl bg-[#FFE8DE] px-5 pt-5 pb-10">
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#FAFFF1] px-5 pt-5 pb-10">
+            <div className="">
+              <p className="text-black text-2xl font-semibold">
+                New Locations Unlocked!
+              </p>
+              <img src="/img/about/b2.png" className="mt-5" alt="" />
+              <p className="mt-3 font-bold">Shride Expands Its Reach:</p>
+              <p className="mt-2">
+                More Locations, More Possibilities! We are excited to announce
+                that Shride is growing! As part of our commitment to making
+                fast, reliable, and affordable bike hailing accessible to more
+                people, Shride has expanded and now serve these locations, Oki,
+                Monatan, Ayegun, Omi Adio and environs. This means more
+                communities can now enjoy the ease and convenience of booking a
+                ride with just a few taps.
+                <br />
+                <br />
+                Whether you're heading to work, running errands, or exploring
+                new parts of town, Shride is right there with you. If we’ve just
+                arrived in your area, hop on a Shride and feel the difference.
+              </p>
+            </div>
+            <div className="mt-20">
+              <p className="text-xs text-right">December Digest 2024</p>
+            </div>
+          </div>
+
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#FFF1FA] px-5 pt-5 pb-10">
+            <div className="">
+              <p className="text-black text-2xl font-semibold">
+                KeKe For The Road!
+              </p>
+              <img src="/img/about/b1.png" className="mt-5" alt="" />
+              <p className="mt-3 font-bold">Shride Launches Keke Rides!</p>
+              <p className="mt-2">
+                Shride Launches Keke Rides! Big news! Shride is now launching
+                Keke (tricycle) rides to serve you even better.
+                <br />
+                <br />
+                This new option brings more comfort, space, and affordability
+                for short and mid-range trips and for the rainy season. Whether
+                you're traveling with friends, carrying goods, or just want a
+                breezy ride around town, Shride Keke has you covered. you can
+                choose to ride alone or trike-pool with other shriders. We mean
+                it when we say we are going to take you there!
+                <br />
+                <br />
+                Just like our bike rides, Keke rides are easy to book, safe, and
+                always reliable.
+                <br />
+                <br />
+                Look out for the Shride Keke in your area—and get ready for a
+                smoother way to move.
+              </p>
+            </div>
+            <div className="mt-20">
+              <p className="text-xs text-right">November Digest 2024</p>
+            </div>
+          </div>
+
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#FFE8DE] px-5 pt-5 pb-10">
             <div className="">
               <p className="text-[#FF5001] text-2xl font-semibold">
                 New Milestone Achieved!
@@ -238,6 +321,49 @@ export default function Business() {
             </div>
             <div className="mt-20">
               <p className="text-xs text-right">October Digest 2024</p>
+            </div>
+          </div>
+
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#C2E9C3] px-5 pt-5 pb-10">
+            <div className="">
+              <p className="text-[#00A205] text-2xl font-semibold">
+                Community Activities.
+              </p>
+              <img src="/img/about/a2.png" className="mt-5" alt="" />
+              <p className="mt-3">
+                We were at the IbadanTechExpo. We support events and activities
+                that engages the community. We gave free ride vouchers, bags,
+                jotters etc to grace the event!
+              </p>
+              <p className="mt-2">
+                5,000 social media impression, yes, we are proud of our small
+                wins, and the beautiful city of Ibadan welcomed us.
+              </p>
+            </div>
+            <div className="mt-20">
+              <p className="text-xs text-right">September Digest 2024</p>
+            </div>
+          </div>
+
+          <div className="flex w-[440px] md:w-[90%] h-full flex-col justify-between rounded-3xl bg-[#FCE7FC] px-5 pt-5 pb-10">
+            <div className="">
+              <p className="text-[#DE13E2] text-2xl font-semibold">
+                Prelaunch Riders Onboarding.
+              </p>
+              <img src="/img/about/a1.png" className="mt-5" alt="" />
+              <p className="mt-3">
+                in this era of technology, transportation should not be a
+                struggle. Everyday transportation with modern day approach is
+                one thing we strongly believe at Shride.
+              </p>
+              <p className="mt-2">
+                We took our enthusiasm to the streets to onboard bikers, and
+                they were excited to be part of the moving train of modern day
+                transportation.
+              </p>
+            </div>
+            <div className="mt-20">
+              <p className="text-xs text-right">August Prelaunch 2024</p>
             </div>
           </div>
         </div>

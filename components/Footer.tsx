@@ -25,9 +25,9 @@ export default function Footer() {
               6, Ilupeju road, Oluyole Sharp Corner Ibadan.
             </p>
             <p className="mt-5">
-              <a href="tel:08064223253" className="">
+              {/* <a href="tel:08064223253" className="">
                 0806 4223 253
-              </a>{" "}
+              </a> */}
             </p>
           </div>
           <div className="">
@@ -115,7 +115,7 @@ export default function Footer() {
         </div>
         <div className="w-full py-5 flex md:flex-col text-sm font-light  md:gap-6 justify-between items-center">
           <div className="flex gap-5 items-center">
-            <p className="">&copy; 2024 Shride</p>
+            <p className="">&copy; 2025 Shride</p>
           </div>
           <div className="flex items-center md:flex-wrap gap-5">
             {/* <a href="" className="">
