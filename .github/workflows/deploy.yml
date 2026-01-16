@@ -1,0 +1,47 @@
+name: Deploy Next.js to Fargate
+
+on:
+  push:
+    branches: [main]
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: shride-landing-nextjs
+  ECS_CLUSTER: shride-landing-cluster
+  ECS_SERVICE: shride-landing-service
+  TASK_DEFINITION: shride-landing-task
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build & Push Docker Image
+        run: |
+          IMAGE_URI=$(aws ecr describe-repositories \
+            --repository-names $ECR_REPOSITORY \
+            --query 'repositories[0].repositoryUri' \
+            --output text)
+
+          docker build -t $IMAGE_URI:latest .
+          docker push $IMAGE_URI:latest
+
+      - name: Update ECS Service
+        run: |
+          aws ecs update-service \
+            --cluster $ECS_CLUSTER \
+            --service $ECS_SERVICE \
+            --force-new-deployment
