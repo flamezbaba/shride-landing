@@ -98,7 +98,7 @@ jobs:
       # ----------------------------
       # ECS SERVICE
       # ----------------------------
-      - name: Ensure ECS service exists
+      - name: Ensure ECS service existss
         run: |
           SERVICE_STATUS=$(aws ecs describe-services \
             --cluster $ECS_CLUSTER \
