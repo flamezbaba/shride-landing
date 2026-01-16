@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 import bg1 from "@/public/img/home/bg1.png";
 import PlayStoreLink from "./PlayStoreLink";
 import AppleStoreLink from "./AppleStoreLink";
+import { FaX } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
         }}
         className="w-full text-white px-[50px] md:px-[20px] pt-[50px] mt-20"
       >
-        <div className="w-full grid grid-cols-4 md:grid-cols-1 md:gap-10 py-5 border-b-[2px] border-b-neutral-900">
+        <div className="w-full grid grid-cols-4 md:grid-cols-1 gap-5 md:gap-10 py-5 border-b-[2px] border-b-neutral-900">
           <div className="">
             <img src="/img/shride-logo-white.png" width="100" alt="" />
             <p className="mt-10">
@@ -43,19 +44,29 @@ export default function Footer() {
                   Shride For Delivery
                 </a>
               </li>
+              <li>
+                <a href="/" className="">
+                  Shride Eats
+                </a>
+              </li>
             </ul>
           </div>
           <div className="">
             <p className="font-bold">Links</p>
             <ul className="space-y-4 mt-6">
               <li>
-                <a href="/rider" className="">
+                <a href="/ride" className="">
                   Rides
                 </a>
               </li>
               <li>
                 <a href="/rider" className="">
                   Become a Rider
+                </a>
+              </li>
+              <li>
+                <a href="/business" className="">
+                  Become a Merchant
                 </a>
               </li>
             </ul>
@@ -66,6 +77,11 @@ export default function Footer() {
               <li>
                 <a href="/about-us" className="">
                   About Us
+                </a>
+              </li>
+              <li>
+                <a href="/faq" className="">
+                  Faqs
                 </a>
               </li>
               <li>
@@ -94,7 +110,7 @@ export default function Footer() {
               <FaInstagram size={25} />
             </a>
             <a href="https://x.com/theshrideapp" target="_blank" className="">
-              <FaTwitter size={25} />
+              <FaX size={25} />
             </a>
             <a
               href="https://www.tiktok.com/@shrideapp"

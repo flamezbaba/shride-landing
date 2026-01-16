@@ -162,7 +162,7 @@ export default function Business() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col  px-[50px] md:px-[20px] py-[50px] md:py-[30px]">
+      {/* <section className="w-full flex flex-col  px-[50px] md:px-[20px] py-[50px] md:py-[30px]">
         <header className="">
           <p className="text-[4em] text-center leading-tight md:text-[2.5em] md:text-left font-bold">
             What's <br />
@@ -379,7 +379,7 @@ export default function Business() {
             #1MillionRideChallenge.
           </p>
         </div>
-      </section>
+      </section> */}
       <section className="">
         <FooterHero bgColor="#000" textColor="#fff" />
       </section>

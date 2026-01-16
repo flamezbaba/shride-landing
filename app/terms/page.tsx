@@ -29,10 +29,17 @@ export default function Terms() {
   return (
     <div className="w-full lg:mt-10 overflow-hidden">
       <section className="w-full px-[50px] md:px-[20px]">
-        <header className="w-full">
-          <h3 className="text-center uppercase font-bold text-2xl">
+        <header className="w-full flex justify-between items-start">
+          {/* <h3 className="text-center uppercase font-bold text-2xl">
             Terms of Service
-          </h3>
+          </h3> */}
+          <p className="text-[6em] leading-tight md:text-[2.5em] font-bold mt-20 md:mt-0">
+            Terms &
+            <br />{" "}
+            <span className="text-[var(--primary-color)]">Conditions</span>{" "}
+          </p>
+
+          <img src="/img/terms.png" alt="" className="w-[40%] md:w-[120px] md:hidden" />
         </header>
         <article className="mt-10">
           <p>
@@ -234,19 +241,20 @@ export default function Terms() {
               You agree not to use the Platform for any of the following
               purposes:
             </li>
-              <li>To transport illegal goods or substances.</li>
-              <li>To engage in any illegal activity.</li>
-              <li>To harm or threaten to harm any person or property.</li>
-              <li>To impersonate another person.</li>
-              <li>To violate the privacy of another person.</li>
-              <li>
-                To distribute spam or other unsolicited commercial
-                communications.
-              </li>
-              <li>To disrupt or interfere with the Platform.</li>
+            <li>To transport illegal goods or substances.</li>
+            <li>To engage in any illegal activity.</li>
+            <li>To harm or threaten to harm any person or property.</li>
+            <li>To impersonate another person.</li>
+            <li>To violate the privacy of another person.</li>
+            <li>
+              To distribute spam or other unsolicited commercial communications.
+            </li>
+            <li>To disrupt or interfere with the Platform.</li>
           </ul>
 
-          <h2 className="mt-5 text-xl font-semibold">12. Our Materials and Licences to You</h2>
+          <h2 className="mt-5 text-xl font-semibold">
+            12. Our Materials and Licences to You
+          </h2>
           <p>
             The Platform contains materials that are owned by or licensed to
             Shride, including trademarks, copyrights, and other intellectual
@@ -257,7 +265,9 @@ export default function Terms() {
             Shride's express written permission.
           </p>
 
-          <h2 className="mt-5 text-xl font-semibold">13. Our Alcoholic Beverage Policy</h2>
+          <h2 className="mt-5 text-xl font-semibold">
+            13. Our Alcoholic Beverage Policy
+          </h2>
           <p>
             Shride prohibits the transportation of open containers of alcohol in
             vehicles used for Rides. Riders are also prohibited from being
@@ -265,7 +275,9 @@ export default function Terms() {
             refuse service to any Rider or Driver who appears to be intoxicated.
           </p>
 
-          <h2 className="mt-5 text-xl font-semibold">14. Limitation of Liability</h2>
+          <h2 className="mt-5 text-xl font-semibold">
+            14. Limitation of Liability
+          </h2>
           <p>
             Shride, its affiliates, directors, officers, employees, agents, and
             licensors shall not be liable for any direct, indirect, incidental,
@@ -293,7 +305,9 @@ export default function Terms() {
             twelve (12) months preceding the claim.
           </p>
 
-          <h2 className="mt-5 text-xl font-semibold">15. Disclaimer of Warranty</h2>
+          <h2 className="mt-5 text-xl font-semibold">
+            15. Disclaimer of Warranty
+          </h2>
           <p>
             The Shride platform and services are provided on an "as is" and "as
             available" basis, without warranties of any kind, either express or
@@ -328,7 +342,9 @@ export default function Terms() {
             content.
           </p>
 
-          <h3 className="mt-5 text-xl font-semibold">Exclusions and Limitations:</h3>
+          <h3 className="mt-5 text-xl font-semibold">
+            Exclusions and Limitations:
+          </h3>
           <p>
             Some jurisdictions do not allow the exclusion of certain warranties
             or the limitation or exclusion of liability for certain damages.
@@ -356,7 +372,9 @@ export default function Terms() {
             transactions.
           </p>
 
-          <h3 className="mt-5 text-xl font-semibold">What are Grey Market Transactions?</h3>
+          <h3 className="mt-5 text-xl font-semibold">
+            What are Grey Market Transactions?
+          </h3>
           <p>
             Grey market transactions refer to accepting payments or giving rides
             outside of the Shride app. This practice involves conducting ride
@@ -365,7 +383,9 @@ export default function Terms() {
             monitoring, and customer support.
           </p>
 
-          <h3 className="mt-5 text-xl font-semibold">Why Are Grey Market Transactions Prohibited?</h3>
+          <h3 className="mt-5 text-xl font-semibold">
+            Why Are Grey Market Transactions Prohibited?
+          </h3>
           <ol className="list-decimal ml-10">
             <li>
               <strong>Security and Safety:</strong> Shride's platform is
@@ -403,7 +423,9 @@ export default function Terms() {
             </li>
           </ol>
 
-          <h3 className="mt-5 text-xl font-semibold">Consequences of Grey Market Transactions:</h3>
+          <h3 className="mt-5 text-xl font-semibold">
+            Consequences of Grey Market Transactions:
+          </h3>
           <ul className="list-decimal ml-10">
             <li>
               <strong>Immediate Termination:</strong> Engaging in grey market
@@ -420,15 +442,14 @@ export default function Terms() {
               legal action against individuals involved in grey market
               transactions to protect our business and user community.
             </li>
-         
 
-          <li>
-            <strong>Maintaining Integrity:</strong> To ensure the continued
-            success and integrity of Shride, it is crucial that all ride
-            transactions occur through the official app. This policy not only
-            upholds our terms of service but also reinforces the trust and
-            safety that our users expect from Shride.
-          </li>
+            <li>
+              <strong>Maintaining Integrity:</strong> To ensure the continued
+              success and integrity of Shride, it is crucial that all ride
+              transactions occur through the official app. This policy not only
+              upholds our terms of service but also reinforces the trust and
+              safety that our users expect from Shride.
+            </li>
           </ul>
           <p className="mt-5">
             By adhering to these guidelines, drivers can contribute to a secure,

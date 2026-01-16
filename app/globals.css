@@ -84,3 +84,19 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.home-r1{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 53.85%, rgba(0,0,0,0.7) 100%), url('/img/home/r1.png');
+  background-size: cover;
+}
+
+.home-r2{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 53.85%, rgba(0,0,0,0.7) 100%), url('/img/home/r2.png');
+  background-size: cover;
+}
+
+.home-r3{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 53.85%, rgba(0,0,0,0.7) 100%), url('/img/home/r3.png');
+  background-size: cover;
+}
