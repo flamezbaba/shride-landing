@@ -7,7 +7,7 @@
   "executionRoleArn": "arn:aws:iam::607336804654:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "nextjs",
+      "name": "nextjs-container",
       "image": "IMAGE_PLACEHOLDER",
       "portMappings": [
         {
