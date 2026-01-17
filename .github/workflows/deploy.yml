@@ -7,12 +7,9 @@ on:
 env:
   AWS_REGION: us-east-2
   ECR_REPOSITORY: shride-landings-nextjs
-  ECS_CLUSTER: shride-landings-cluster
-  ECS_SERVICE: shride-landings-service
-  TASK_FAMILY: shride-landings-task
-  CONTAINER_NAME: shride-landings-nextjs
-  CPU: 512
-  MEMORY: 1024
+  ECS_CLUSTER: default
+  ECS_SERVICE: shride-landings-nextjs-d096
+  TASK_DEFINITION: arn:aws:ecs:us-east-2:607336804654:task/default/791871f5380840c7847814cc8487e59e
 
 jobs:
   deploy:
@@ -32,9 +29,6 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      # ----------------------------
-      # ECR
-      # ----------------------------
       - name: Ensure ECR repository exists
         run: |
           aws ecr describe-repositories \
@@ -52,73 +46,9 @@ jobs:
           docker build -t $IMAGE_URI:latest .
           docker push $IMAGE_URI:latest
 
-      # ----------------------------
-      # ECS CLUSTER
-      # ----------------------------
-      - name: Ensure ECS cluster exists
+      - name: Update ECS Service
         run: |
-          aws ecs describe-clusters --clusters $ECS_CLUSTER \
-            --query "clusters[0].status" --output text 2>/dev/null \
-          || aws ecs create-cluster --cluster-name $ECS_CLUSTER
-
-      # ----------------------------
-      # TASK DEFINITION
-      # ----------------------------
-      - name: Register task definition
-        run: |
-          IMAGE_URI=$(aws ecr describe-repositories \
-            --repository-names $ECR_REPOSITORY \
-            --query 'repositories[0].repositoryUri' \
-            --output text)
-
-          cat > task-def.json <<EOF
-          {
-            "family": "$TASK_FAMILY",
-            "networkMode": "awsvpc",
-            "requiresCompatibilities": ["FARGATE"],
-            "cpu": "$CPU",
-            "memory": "$MEMORY",
-            "executionRoleArn": "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/ecsTaskExecutionRole",
-            "containerDefinitions": [
-              {
-                "name": "$CONTAINER_NAME",
-                "image": "$IMAGE_URI:latest",
-                "portMappings": [
-                  { "containerPort": 3000, "protocol": "tcp" }
-                ],
-                "essential": true
-              }
-            ]
-          }
-          EOF
-
-          aws ecs register-task-definition \
-            --cli-input-json file://task-def.json
-
-      # ----------------------------
-      # ECS SERVICE
-      # ----------------------------
-      - name: Ensure ECS service exists
-        run: |
-          SERVICE_STATUS=$(aws ecs describe-services \
+          aws ecs update-service \
             --cluster $ECS_CLUSTER \
-            --services $ECS_SERVICE \
-            --query "services[0].status" \
-            --output text 2>/dev/null)
-
-          if [ "$SERVICE_STATUS" != "ACTIVE" ]; then
-            aws ecs create-service \
-              --cluster $ECS_CLUSTER \
-              --service-name $ECS_SERVICE \
-              --task-definition $TASK_FAMILY \
-              --desired-count 1 \
-              --launch-type FARGATE \
-              --network-configuration "awsvpcConfiguration={subnets=[${{ secrets.ECS_SUBNETS }}],securityGroups=[${{ secrets.ECS_SECURITY_GROUP }}],assignPublicIp=ENABLED}" \
-              --load-balancers "targetGroupArn=${{ secrets.ECS_TARGET_GROUP_ARN }},containerName=$CONTAINER_NAME,containerPort=3000"
-          else
-            aws ecs update-service \
-              --cluster $ECS_CLUSTER \
-              --service $ECS_SERVICE \
-              --task-definition $TASK_FAMILY \
-              --force-new-deployment
-          fi
+            --service $ECS_SERVICE \
+            --force-new-deployment
