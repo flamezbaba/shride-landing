@@ -9,7 +9,7 @@ env:
   ECR_REPOSITORY: shride-landing-nextjs
   ECS_CLUSTER: default
   ECS_SERVICE: shr-nextjs-service-oh9ldzt6
-  TASK_DEFINITION: arn:aws:ecs:us-east-2:607336804654:task-definition/shride-task:1
+  CONTAINER_NAME: nextjs-container
 
 jobs:
   deploy:
@@ -29,26 +29,31 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Ensure ECR repository exists
-        run: |
-          aws ecr describe-repositories \
-            --repository-names $ECR_REPOSITORY \
-          || aws ecr create-repository \
-            --repository-name $ECR_REPOSITORY
-
-      - name: Build & Push Docker Image
+      - name: Build and push Docker image
+        id: build-image
         run: |
           IMAGE_URI=$(aws ecr describe-repositories \
             --repository-names $ECR_REPOSITORY \
             --query 'repositories[0].repositoryUri' \
             --output text)
 
-          docker build -t $IMAGE_URI:latest .
-          docker push $IMAGE_URI:latest
+          docker build -t $IMAGE_URI:${GITHUB_SHA} .
+          docker push $IMAGE_URI:${GITHUB_SHA}
 
-      - name: Update ECS Service
-        run: |
-          aws ecs update-service \
-            --cluster $ECS_CLUSTER \
-            --service $ECS_SERVICE \
-            --force-new-deployment
+          echo "image=$IMAGE_URI:${GITHUB_SHA}" >> $GITHUB_OUTPUT
+
+      - name: Render ECS task definition
+        id: render-task
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ steps.build-image.outputs.image }}
+
+      - name: Deploy ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.render-task.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
