@@ -23,6 +23,9 @@ export default function Health() {
 
           <div className="flex gap-2 items-center font-medium">
             <p className="text-xl md:text-lg font-light leading-relaxed">
+            See as e easy to deploy
+            <br/>
+            <br/>
               We are a team of young talented designers, engineers, directors
               and influencers confronting the old-fashioned Tech and Transport
               ecosystem in Africa.

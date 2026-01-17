@@ -18,7 +18,7 @@ export default function Business() {
         )}
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
           <p className="text-[4em] leading-tight md:text-[2.5em] md:text-center font-bold">
-            Meet the <span className="text-[var(--primary-color)]">Team AWS</span>{" "}
+            Meet the <span className="text-[var(--primary-color)]">Team</span>{" "}
           </p>
 
           <div className="flex gap-2 items-center font-medium">
