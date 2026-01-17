@@ -8,7 +8,7 @@ env:
   AWS_REGION: us-east-2
   ECR_REPOSITORY: shride-landing-nextjs
   ECS_CLUSTER: default
-  ECS_SERVICE: shride-task-service-2rb6l63c
+  ECS_SERVICE: shr-nextjs-service-oh9ldzt6
   TASK_DEFINITION: arn:aws:ecs:us-east-2:607336804654:task-definition/shride-task:1
 
 jobs:
