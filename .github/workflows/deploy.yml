@@ -6,11 +6,11 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: shride-landing-nextjs
-  ECS_CLUSTER: shride-landing-cluster
-  ECS_SERVICE: shride-landing-service
-  TASK_FAMILY: shride-landing-task
-  CONTAINER_NAME: shride-landing-nextjs
+  ECR_REPOSITORY: shride-landings-nextjs
+  ECS_CLUSTER: shride-landings-cluster
+  ECS_SERVICE: shride-landings-service
+  TASK_FAMILY: shride-landings-task
+  CONTAINER_NAME: shride-landings-nextjs
   CPU: 512
   MEMORY: 1024
 
@@ -98,7 +98,7 @@ jobs:
       # ----------------------------
       # ECS SERVICE
       # ----------------------------
-      - name: Ensure ECS service existss
+      - name: Ensure ECS service exists
         run: |
           SERVICE_STATUS=$(aws ecs describe-services \
             --cluster $ECS_CLUSTER \
