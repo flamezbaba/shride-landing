@@ -23,6 +23,7 @@ import HomeLottie from "@/components/HomeLottie";
 import clsx from "clsx";
 import HomeAutoScroll from "@/components/HomeAutoScroll";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import Header from "@/components/Header";
 
 const SERVICES = [
   {
@@ -80,6 +81,7 @@ export default function Home() {
 
   return (
     <div className="w-full overflow-hidden">
+      <Header />
       <section className="w-full flex md:flex-col mt-10 justify-between pl-[50px] md:pl-[20px]">
         <div className="w-[60%] md:w-full flex flex-col justify-center md:items-center">
           {/* <p className="text-[7em] leading-[1] md:text-[3em] md:text-center font-bold"> */}

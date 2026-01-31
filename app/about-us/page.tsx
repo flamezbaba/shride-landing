@@ -1,5 +1,6 @@
 "use client";
 import FooterHero from "@/components/FooterHero";
+import Header from "@/components/Header";
 import { useMediaQuery } from "@reactuses/core";
 
 export default function Business() {
@@ -10,6 +11,7 @@ export default function Business() {
 
   return (
     <div className="w-full lg:mt-10 overflow-hidden">
+      <Header />
       <section className="w-full flex md:flex-col justify-between items-center gap-10 pl-[50px] md:pl-[20px]">
         {isMobile && (
           <div className="w-1/2 md:w-full md:mt-[30px] relative flex justify-center">

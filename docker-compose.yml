@@ -5,6 +5,10 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - next_cache:/app/.next
     ports:
       - "3001:3000"
     command: sh -c "npm install && npm run dev"
+
+volumes:
+  next_cache:

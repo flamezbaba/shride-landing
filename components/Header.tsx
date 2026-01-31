@@ -9,6 +9,7 @@ import {
   IoChevronBackCircle,
   IoChevronDownCircleOutline,
 } from "react-icons/io5";
+import Link from "next/link";
 
 const variants = {
   open: { x: 0 },
@@ -84,7 +85,7 @@ export default function Header() {
               <div className="bg-white hidden group-hover:flex flex-col px-4 gap-3 mt-3">
                 <a href="/ride">Rides</a>
                 <a href="">Delivery</a>
-                <a href="">Eat</a>
+                <a href="/stores">Eat</a>
               </div>
             </div>
             <div className="relative group">
@@ -101,9 +102,9 @@ export default function Header() {
             {/* <a href="/rider">Become a Rider</a> */}
             <a href="/about-us">About Us</a>
 
-            <div className="">
+            <Link href='/stores' className="">
               <img src="/img/cart.png" alt="" className="w-[40px]" />
-            </div>
+            </Link>
           </div>
 
           <div className="flex items-start justify-start px-[20px] gap-5 mt-10 absolute bottom-5">
@@ -133,7 +134,7 @@ export default function Header() {
                 <a href="/delivery" className="hover:text-[#ff5001]">
                   Delivery
                 </a>
-                <a href="/" className="hover:text-[#ff5001]">
+                <a href="/stores" className="hover:text-[#ff5001]">
                   Eat
                 </a>
               </div>
@@ -155,9 +156,9 @@ export default function Header() {
             </a>
           </div>
 
-          <div className="">
+          <Link href='/stores' className="">
             <img src="/img/cart.png" alt="" className="w-[40px]" />
-          </div>
+          </Link>
         </>
       )}
     </div>
