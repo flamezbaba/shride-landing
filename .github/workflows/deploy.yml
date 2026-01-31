@@ -2,7 +2,7 @@ name: Deploy Next.js to Fargate
 
 on:
   push:
-    branches: [main]
+    branches: [staging]
 
 env:
   AWS_REGION: us-east-2
