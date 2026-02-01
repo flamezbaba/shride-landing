@@ -37,10 +37,10 @@ export default function SearchInput() {
       <BiSearch size={22} />
       <input
         type="text"
-        className="flex-1 h-full bg-transparent text-center text-lg px-3 outline-none focus:outline-none placeholder:text-black"
+        className="flex-1 h-full bg-transparent text-center text-lg px-3 outline-none focus:outline-none placeholder:text-gray-400"
         placeholder="what are you craving ?"
         // onChange={(e) => handleSearch(e.target.value)}
-        defaultValue={searchParams.get("q")?.toString()}
+        value={searchParams.get("q")?.toString()}
         onChange={(e: any) => setSearchText(e.target.value)}
       />
     </div>

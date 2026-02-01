@@ -16,7 +16,7 @@ import TopAddress from "./TopAddress";
 import { reloadUser } from "@/lib/api";
 import { getEatHomepage, getStore } from "@/lib/requests";
 import { useUserStore } from "@/store/user";
-import { getAddressLabel, getLoggedUser } from "@/lib/utils";
+import { getAddressLabel, getLoggedUser, shortenWords } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { FaSignOutAlt, FaWallet } from "react-icons/fa";
 import { IoWalletOutline } from "react-icons/io5";
@@ -221,8 +221,10 @@ function TopCart({ user }: { user: any }) {
             </div>
           ) : (
             <div className="w-full h-[130px] px-4 py-4 flex flex-col text-center items-center justify-center">
-              <p className="">No items in your cart</p>
-              <Link href="/stores" className="">
+              <p className="text-lg font-medium">There are no items in your cart</p>
+              {/* <p className="text-lg font-medium">There are no items in your cart</p> */}
+
+              <Link href="/stores" className="btn mt-4">
                 Start Shopping
               </Link>
             </div>
@@ -285,7 +287,7 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
   if (!hasHydrated) return null;
 
   const shortAddress = !!address?.address
-    ? getAddressLabel(address?.address)
+    ? shortenWords(getAddressLabel(address?.address), 15)
     : "";
 
   const isSearchPage = pathname.includes("search");
@@ -299,19 +301,17 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
 
         <div className="">
           <div className="flex items-center gap-5 relative cursor-pointer">
-            {!!address && (
-              <div onClick={() => openModal()} className="flex gap-1">
-                <HiOutlineLocationMarker
-                  size={25}
-                  className="text-[var(--primary-color)]"
-                />
-                <div className="text-lg font-medium">{shortAddress}</div>
-                <BiChevronDown
-                  size={22}
-                  className="text-[var(--primary-color)]"
-                />
-              </div>
-            )}
+            <div onClick={() => openModal()} className="flex gap-1">
+              <HiOutlineLocationMarker
+                size={25}
+                className="text-[var(--primary-color)]"
+              />
+              <div className="text-lg font-medium">{shortAddress}</div>
+              <BiChevronDown
+                size={22}
+                className="text-[var(--primary-color)]"
+              />
+            </div>
 
             {!address && (
               <div

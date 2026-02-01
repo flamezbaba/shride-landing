@@ -2,6 +2,7 @@
 
 import { useShrideModal } from "@/hooks/useShrideModal";
 import axios from "axios";
+import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import pluralize from "pluralize";
@@ -35,6 +36,20 @@ const OrderHistoryModal: FC<{}> = () => {
   const gotoLink = (item: any) => {
     router.push(`/order/${item.id}`);
     hideModal();
+  };
+
+  const getStatusColor = (status: any) => {
+    let statusColor = "text-black";
+
+    if (status == "delivered") {
+      statusColor = "text-green-600";
+    }
+
+    if (status == "cancelled") {
+      statusColor = "text-red-600";
+    }
+
+    return statusColor;
   };
 
   return (
@@ -95,19 +110,23 @@ const OrderHistoryModal: FC<{}> = () => {
                         {item?.store?.name}
                       </p>
                       <p className="">
-                        {item?.created_at_obj?.withDayN} . {item?.status}
+                        {item?.created_at_obj?.withDayN} . {"  "}{" "}
+                        {item?.items?.length || 0}{" "}
+                        {pluralize("item", item?.items?.length || 0)}
                       </p>
                       <p className="text-sm">#{item?.uuid}</p>
                     </div>
                   </div>
                   <div className="">
-                    <p className="text-base font-semibold text-right">
-                      ₦ {item?.user_money?.toLocaleString()}
+                    <p
+                      className={clsx(
+                        `text-base font-semibold text-right capitalize ${getStatusColor(item.status)}`,
+                      )}
+                    >
+                      {item?.status}
                     </p>
                     <p className="text-sm text-right">
-                      {/* {"  "} {item?.items?.length || 0}{" "}
-                      {pluralize("item", item?.items?.length || 0)} */}
-                      {item?.status}
+                      ₦ {item?.user_money?.toLocaleString()}
                     </p>
                   </div>
                 </div>

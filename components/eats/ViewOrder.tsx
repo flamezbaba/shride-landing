@@ -157,7 +157,7 @@ export default function ViewOrder({
 
   const renderStatus = (_status_level: any, status: any) => {
     let stage = _status_level;
-    let currentLevel = _status_level;
+    let currentLevel = _status_level < 4 ? _status_level : 0;
 
     return (
       <div className="grid grid-cols-4 gap-2 mt-5">
@@ -222,7 +222,11 @@ export default function ViewOrder({
   return (
     <div className="w-full">
       <div className="mt-5 w-8/12">
-        <p className="text-3xl font-bold">Order Status</p>
+        {orderData?.status == "delivered" ? (
+          <p className="text-3xl font-bold text-green-600">Order Completed</p>
+        ) : (
+          <p className="text-3xl font-bold">Order Status</p>
+        )}
 
         <div className="">
           {renderStatus(orderData?.status_level, orderData.status)}
@@ -230,9 +234,13 @@ export default function ViewOrder({
 
         <div className="flex flex-col items-center justify-center mt-4">
           <div className="px-3 py-1 rounded-sm font-bold ring-2 ring-gray-300">
-            <span className="text-center text-3xl">{deliveryCode}</span>
+            <span className="text-center text-3xl tracking-widest">
+              {deliveryCode}
+            </span>
           </div>
-          <p className="text-center text-[var(--primary-color)]">Pin is required at delivery</p>
+          <p className="text-center text-[var(--primary-color)]">
+            Pin is required at delivery
+          </p>
         </div>
 
         <div className="flex items-center gap-4 mt-5">
@@ -242,45 +250,44 @@ export default function ViewOrder({
           </p>
         </div>
 
-        {!!orderData?.trip?.rider?.fullname && (
-          <div className="mt-5 w-full flex items-center justify-between pb-2 border-b-2 border-b-gray-300">
-            <div className="flex items-center gap-4 mt-5">
-              <TbHelmet size={25} />
-              <div className="">
-                <p className="text-2xl font-semibold capitalize">
-                  {orderData?.trip?.rider?.fullname}
-                </p>
-                <p className="">
-                  {orderData?.trip?.vehicle?.name} (
-                  {orderData?.trip?.vehicle?.plate_number}) -{" "}
-                  {orderData?.trip?.vehicle?.color}
-                </p>
+        {!!orderData?.trip?.rider?.fullname &&
+          orderData?.status != "delivered" && (
+            <div className="mt-5 w-full flex items-center justify-between pb-2 border-b-2 border-b-gray-300">
+              <div className="flex items-center gap-4 mt-5">
+                <TbHelmet size={25} />
+                <div className="">
+                  <p className="text-2xl font-semibold capitalize">
+                    {orderData?.trip?.rider?.fullname}
+                  </p>
+                  <p className="">
+                    {orderData?.trip?.vehicle?.name} (
+                    {orderData?.trip?.vehicle?.plate_number}) -{" "}
+                    {orderData?.trip?.vehicle?.color}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5">
+                <a
+                  href={`https://wa.me/+234${orderData?.trip?.rider?.mobile}`}
+                  className="inline-flex items-center justify-center p-3 bg-gray-200 rounded-full"
+                >
+                  <BsWhatsapp className="text-green-600" size={20} />
+                </a>
+
+                <a
+                  href={`tel:${orderData?.trip?.rider?.mobile}`}
+                  className="inline-flex items-center justify-center p-3 bg-gray-200 rounded-full"
+                >
+                  <BiPhone className="text-orange-600" size={20} />
+                </a>
               </div>
             </div>
-
-            <div className="flex items-center gap-5">
-              <a
-                href={`https://wa.me/+234${orderData?.trip?.rider?.mobile}`}
-                className="inline-flex items-center justify-center p-3 bg-gray-200 rounded-full"
-              >
-                <BsWhatsapp className="text-green-600" size={20} />
-              </a>
-
-              <a
-                href={`tel:${orderData?.trip?.rider?.mobile}`}
-                className="inline-flex items-center justify-center p-3 bg-gray-200 rounded-full"
-              >
-                <BiPhone className="text-orange-600" size={20} />
-              </a>
-            </div>
-          </div>
-        )}
+          )}
 
         <div className="mt-3 border-b-2 border-b-gray-300 pb-2">
           <p className="font-semibold text-lg">Delivery address</p>
-          <p className="">
-            Orita challenge, Akala express way, Ibadan, Oyo State.
-          </p>
+          <p className="">{orderData?.address}</p>
         </div>
 
         <div className="mt-5">

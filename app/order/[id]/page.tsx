@@ -69,12 +69,18 @@ export default async function OrderPage({ params }: Props) {
             <ViewOrder orderData={order} orderId={id} />
           </div>
 
-          <div className="w-1/3 md:w-full">
-            {!!ads && <img
+          <div className="w-2/4 md:w-full">
+            {/* {!!ads && <img
               src={ads}
               alt=""
               className=""
-            />}
+            />} */}
+
+            <img
+              src="https://cloud.shrideapp.com/pop-ads/KNmj9Uk5QZUa33xC2UtVMzmPAPgUD5AzKKriXC3j.png"
+              alt=""
+              className=""
+            />
           </div>
         </div>
       </div>
