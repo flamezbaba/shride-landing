@@ -10,42 +10,62 @@ import toast from "react-hot-toast";
 import { IoCloseSharp, IoWarning } from "react-icons/io5";
 import { LiaSpinnerSolid } from "react-icons/lia";
 import axios from "axios";
-import SignupModal from "./SignupModal";
+import LoginModal from "./LoginModal";
+import OtpModal from "./OtpModal";
 
-const LoginModal: FC<{}> = ({}) => {
+const SignupModal: FC<{}> = ({}) => {
   const { hideModal, showModal } = useShrideModal();
   const { address, hasHydrated, setStoreUser } = useUserStore();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isOtp, setIsOtp] = useState<boolean>(false);
   const [email, setEmail] = useState<any>("");
   const [password, setPassword] = useState<any>("");
+  const [firstname, setfirstname] = useState<any>("");
+  const [mobile, setmobile] = useState<any>("");
+  const [otp, setotp] = useState<any>("");
 
   const handleSubmit = async () => {
-    if (!email || !password) {
+    if (!email || !password || !firstname || !mobile) {
       toast.error("Fill all fields");
+      return;
+    }
+
+    if (mobile.length != 11) {
+      toast.error("Invalid Phone Number");
       return;
     }
 
     setIsLoading(true);
 
-    const res = await axios.post("/api/auth/login", {
+    const res = await axios.post("/api/auth/register", {
+      firstname,
+      mobile,
       email,
       password,
     });
 
     if (!res.data) {
-      toast.error("Invalid login details");
+      toast.error("Registration Failed");
       setIsLoading(false);
       return;
     }
 
-    toast.success(`Welcome Back, ${res?.data?.fullname}`);
+    // console.log("res", !!res.data?.error);
+    // return;
+
+    if (!!res.data?.error) {
+      toast.error(res.data?.error);
+      setIsLoading(false);
+      return;
+    }
+
+    toast.success(`${res?.data?.fullname}, Welcome To Shride`);
 
     setStoreUser(res.data);
-    hideModal();
     setIsLoading(false);
 
-    // window.location.reload();
+    showModal(<OtpModal />);
   };
 
   return (
@@ -58,19 +78,44 @@ const LoginModal: FC<{}> = ({}) => {
       </div>
 
       <div className="px-4 pb-12 mt-2 flex flex-col justify-center items-center">
-        <p className="text-2xl text-black font-semibold">Sign in</p>
-        <p className="text-sm text-gray-500">Sign in to complete your order</p>
+        <p className="text-2xl text-black font-semibold">Create Account</p>
+        <p className="text-sm text-gray-500">
+          A little more information to setup your account. let’s get rolling.
+        </p>
       </div>
 
       <div className="pb-[170px] md:pb-[120px] px-20 md:px-8">
         <div className="">
           <div className="my-input mb-3">
             <div className="my-input-group">
+              <label className="">Full Name</label>
+              <input
+                type="text"
+                className=""
+                id="name"
+                onChange={(e: any) => setfirstname(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="my-input mb-3">
+            <div className="my-input-group">
+              <label className="">Email</label>
+              <input
+                type="text"
+                id="email"
+                className=""
+                onChange={(e: any) => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="my-input mb-3">
+            <div className="my-input-group">
               <label className="">Enter Phone Number</label>
               <input
                 type="text"
                 className=""
-                onChange={(e: any) => setEmail(e.target.value)}
+                onChange={(e: any) => setmobile(e.target.value)}
               />
             </div>
           </div>
@@ -95,12 +140,17 @@ const LoginModal: FC<{}> = ({}) => {
               {isLoading ? (
                 <LiaSpinnerSolid className="animate-spin" size={23} />
               ) : (
-                "Sign in"
+                "Create Account"
               )}
             </button>
             <p className="text-center mt-2 text-gray-600 font-medium">
-              New to Shride?{" "}
-              <span onClick={() => showModal(<SignupModal />)} className="text-[var(--primary-color)] cursor-pointer">sign up</span>
+              Already have an account?{" "}
+              <span
+                onClick={() => showModal(<LoginModal />)}
+                className="text-[var(--primary-color)] cursor-pointer"
+              >
+                sign in
+              </span>
             </p>
           </div>
         </div>
@@ -114,4 +164,4 @@ const LoginModal: FC<{}> = ({}) => {
   );
 };
 
-export default LoginModal;
+export default SignupModal;

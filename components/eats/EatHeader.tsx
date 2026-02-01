@@ -27,6 +27,7 @@ import OrderHistoryModal from "../modals/OrderHistoryModal";
 import { usePathname, useRouter } from "next/navigation";
 import { useDebounce } from "@reactuses/core";
 import WalletModal from "../modals/WalletModal";
+import OtpModal from "../modals/OtpModal";
 
 function TopUser({ user }: { user: any }) {
   const { showModal } = useShrideModal();
@@ -240,7 +241,6 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
   const { replace } = useRouter();
 
   const [searchText, setSearchText] = useState<any>("");
-
   const debouncedText = useDebounce(searchText, 500);
 
   useEffect(() => {
@@ -255,18 +255,25 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
 
   useEffect(() => {
     updateUserZus(userProps);
+
+    if (userProps?.is_otp_verified == 0) {
+      showOtp();
+    }
   }, []);
 
+  const showOtp = () => {
+    console.log("userProps", userProps.is_otp_verified);
+    setTimeout(() => {
+      showModal(<OtpModal />);
+    }, 1000);
+  };
+
   const updateUserZus = (userData?: any) => {
-
-    console.log("updateUserZus", userData);
-
     // if (!hasHydrated) return null;
 
     if (!!userData) {
       setStoreUser(userData);
-    }
-    else{
+    } else {
       // setStoreUser(null);
     }
   };

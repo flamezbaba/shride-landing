@@ -144,7 +144,7 @@ export default function ViewStore({
             <div className="flex justify-center items-center">
               <BiMenu size={25} />
             </div>
-            <div className="flex-1 flex flex-col flex-wrap h-[30px] gap-0 overflow-scroll s-none">
+            <div className="flex-1 flex items-start flex-wrap h-[30px] gap-0 overflow-scroll s-none">
               {storeMenuAndProducts?.map((item: any, index: any) => (
                 <div
                   key={index}
@@ -175,7 +175,7 @@ export default function ViewStore({
                   ? "grid grid-cols-3"
                   : "grid grid-cols-4",
               ],
-              `gap-5 mt-5`,
+              `gap-5 mt-5 pb-10`,
             )}
           >
             {searchedProductList?.map((p: any, i: any) => (

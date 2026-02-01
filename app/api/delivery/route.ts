@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
-  const api = serverAxios();
 
   const type = searchParams.get("type");
 
@@ -41,6 +40,12 @@ export async function GET(
     return res;
   }
 
+  if (type == "getUserAddresses") {
+    const res = await getUserAddresses(request);
+
+    return res;
+  }
+
   if (type == "getOrder") {
     if (params) {
       const { id } = await params;
@@ -49,6 +54,13 @@ export async function GET(
 
       return res;
     }
+  }
+
+  if (type == "getEatHomepage") {
+    const city = searchParams.get("city");
+    const res = await getEatHomepage(request, city);
+
+    return res;
   }
 }
 
@@ -162,3 +174,34 @@ async function getFundingAccount(request: NextRequest) {
     return NextResponse.json(null);
   }
 }
+
+async function getEatHomepage(request: NextRequest, city: any) {
+  const api = serverAxios();
+  try {
+    const response = await api.get(`web/get-eat-homepage-list?city=${city}`);
+
+    if (response.data.status) {
+      return NextResponse.json(response.data.data);
+    } else {
+      return NextResponse.json(null);
+    }
+  } catch (err: any) {
+    return NextResponse.json(null);
+  }
+}
+
+async function getUserAddresses(request: NextRequest) {
+  const api = serverAxios();
+  try {
+    const response = await api.get("user/get-all-address");
+
+    if (response.data.status) {
+      return NextResponse.json(response.data.data);
+    } else {
+      return NextResponse.json([]);
+    }
+  } catch (err: any) {
+    return NextResponse.json([]);
+  }
+}
+

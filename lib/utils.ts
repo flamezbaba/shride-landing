@@ -3,6 +3,8 @@ export const googleApiKey = "AIzaSyAcqQhu0KYYlu5V7w9lDmnzSU4O7eKkijU";
 export const sessionToken = "a33aa3156b09fdd3795171d1";
 // export const apiUrl = "http://192.168.0.102/shride-laravel.test/api/v1";
 export const apiUrl = "https://shrideapp.com.ng/api/v1";
+// export const guestToken = "6804|o42GiZiyYQQSefPosRDRhpZQhNroXTXUMsNR8iSg4fc3d713"; //dev
+export const guestToken = "7457|k0WikZFjA9UuFBVWX3WgSDaayoQszXg3r83tl3Mta072e919"; //prod
 
 export const getAddressLabel = (addr: any) => {
   const arr = addr?.split(",");
