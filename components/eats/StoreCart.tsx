@@ -252,6 +252,12 @@ export default function StoreCart({
       return;
     }
 
+    if (storeData?.open_close_statement?.color == 'red') {
+      toast.error('Store is closed');
+      // showError({ message: 'Store is closed' });
+      return;
+    }
+
     setOrderLoading(true);
 
     const res = await axios.post("/api/delivery?type=eatPlaceOrder", {

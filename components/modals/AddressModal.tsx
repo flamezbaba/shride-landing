@@ -6,6 +6,7 @@ import { useShrideModal } from "@/hooks/useShrideModal";
 import { getPlaceViaPlaceID, searchPlaces } from "@/lib/requests";
 import { useUserStore } from "@/store/user";
 import { useDebounce } from "@reactuses/core";
+import axios from "axios";
 // import { apiWrapper } from "@/utils/api";
 // import moment from "moment";
 import { FC, useEffect, useState } from "react";
@@ -32,8 +33,13 @@ const AddressModal: FC<{}> = ({}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [searchText, setSearchText] = useState<any>("");
   const [locations, setLocations] = useState<any[]>([]);
+  const [savedAddr, setSaveAddr] = useState<any[]>([]);
 
   const debouncedText = useDebounce(searchText, 500);
+
+  useEffect(() => {
+    getSavedAddr();
+  }, []);
 
   useEffect(() => {
     if (!debouncedText) return;
@@ -58,9 +64,17 @@ const AddressModal: FC<{}> = ({}) => {
     setIsLoading(false);
   };
 
+  const getSavedAddr = async () => {
+    const res = await axios.get(`/api/delivery?type=getUserAddresses`);
+
+    if (!!res?.data) {
+      setSaveAddr(res.data);
+    }
+  };
+
   const handleGetPlace = async (place: any) => {
     const res = await getPlaceViaPlaceID(place);
-    
+
     if (!!res) {
       setStoreAddress(res);
       hideModal();
@@ -71,7 +85,19 @@ const AddressModal: FC<{}> = ({}) => {
     const newx = { ...locationAddress, latitude, longitude };
     setStoreAddress(newx);
     hideModal();
-  }
+  };
+
+  const useSavedAddress = (addr: any) => {
+    const newx = {
+      state: addr?.state,
+      city: addr?.city,
+      address: addr?.address,
+      latitude: addr?.lat,
+      longitude: addr?.lng,
+    };
+    setStoreAddress(newx);
+    hideModal();
+  };
 
   return (
     <div
@@ -127,7 +153,10 @@ const AddressModal: FC<{}> = ({}) => {
         </div>
 
         <div className="mt-10">
-          <div className="w-full flex items-start gap-2 cursor-pointer" onClick={useCurrentAddress}>
+          <div
+            className="w-full flex items-start gap-2 cursor-pointer"
+            onClick={useCurrentAddress}
+          >
             <TbLocation size={20} />
             <div className="-mt-1">
               <p className="text-base font-medium">Use your current location</p>
@@ -135,6 +164,28 @@ const AddressModal: FC<{}> = ({}) => {
             </div>
           </div>
         </div>
+
+        {savedAddr?.length > 0 && <div className="mt-5">
+          <p className="text-lg font-semibold mb-2">Saved Addresses</p>
+          <div className="w-full space-y-4">
+            {savedAddr?.map((l: any, i: any) => (
+              <div key={i}
+                className="w-full flex items-start gap-2 cursor-pointer"
+                onClick={() => useSavedAddress(l)}
+              >
+                <TbLocation size={20} className="mt-1" />
+                <div className="">
+                  {l?.label && (
+                    <p className="text-base font-medium capitalize">
+                      {l?.label}
+                    </p>
+                  )}
+                  <p className="">{l?.address}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>}
       </div>
     </div>
   );
