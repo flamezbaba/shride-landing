@@ -202,7 +202,7 @@ export async function findMapBoxRoute({
 
 export const getPlaces = async (lat: any, lng: any) => {
   try {
-    console.log("getting place started");
+    // console.log("getting place started");
     const res = await axios.get(
       `https://maps.googleapis.com/maps/api/geocode/json?&latlng=${lat},${lng}&key=${googleApiKey}`,
     );
@@ -252,7 +252,7 @@ export const extraStateCityAddrFromGoogleComponent = (full: any) => {
 
     return tk;
   } catch (e) {
-    console.log("Err", e);
+    // console.log("Err", e);
     return null;
   }
 };
@@ -304,7 +304,7 @@ export async function getPlaceViaPlaceID(place: any) {
     `https://places.googleapis.com/v1/places/${place?.placeId}?key=${googleApiKey}&sessionToken=${sessionToken}&fields=addressComponents,id,displayName,location`,
   );
 
-  console.log("getPlace", response?.data);
+  // console.log("getPlace", response?.data);
 
   if (response?.data?.location) {
     const c = response?.data?.location;

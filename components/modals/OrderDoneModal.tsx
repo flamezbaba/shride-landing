@@ -2,14 +2,22 @@
 
 import { useShrideModal } from "@/hooks/useShrideModal";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import { BiInfoCircle } from "react-icons/bi";
 
 const OrderDoneModal: FC<{ order: any }> = ({ order }) => {
   const { hideModal } = useShrideModal();
+  const router = useRouter();
 
   const backToStore = () => {
     hideModal();
+    window.location.reload();
+  };
+
+  const gotoOrder = () => {
+    hideModal();
+    router.push(`/order/${order?.id}`);
     window.location.reload();
   };
 
@@ -48,7 +56,7 @@ const OrderDoneModal: FC<{ order: any }> = ({ order }) => {
           </p>
         </div>
 
-        <button className="btn mt-14">Check my order status</button>
+        <button className="btn mt-14" onClick={gotoOrder}>Check my order status</button>
 
         <div
           onClick={backToStore}

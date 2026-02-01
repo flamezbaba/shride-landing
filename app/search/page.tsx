@@ -1,5 +1,6 @@
 import EatHeader from "@/components/eats/EatHeader";
 import ExploreCategories from "@/components/eats/ExploreCategories";
+import SearchingList from "@/components/eats/SearchingList";
 import SearchInput from "@/components/eats/SearchInput";
 import FooterHero from "@/components/FooterHero";
 import AddressModal from "@/components/modals/AddressModal";
@@ -20,7 +21,7 @@ type Props = {
 };
 
 async function SearchList({ query }: { query: string }) {
-  const searchResults = await serverFetch(`everyone/search-new/${query}`);
+  const searchResults = await serverFetch(`web/search-new/${query}`);
 
 
   if (!searchResults)
@@ -68,7 +69,7 @@ async function SearchList({ query }: { query: string }) {
                     className="rounded-lg h-[65px] w-[210px] bg-orange-100 p-2 flex items-start gap-3 justify-between"
                   >
                     <div className="flex flex-col justify-between">
-                      <p className="text-base font-medium capitalize">
+                      <p className="text-base font-medium capitalize whitespace-nowrap">
                         {shortenWords(p?.name, 15)}
                       </p>
                       <p className="text-sm">₦{p?.price?.toLocaleString()}</p>
@@ -133,7 +134,7 @@ export default async function SearchPage({ searchParams }: Props) {
         </section>
 
         <div className="">
-          <Suspense
+          {/* <Suspense
             key={query}
             fallback={
               <div className="w-full px-20 flex items-center justify-center pt-[70px]">
@@ -142,7 +143,9 @@ export default async function SearchPage({ searchParams }: Props) {
             }
           >
             <SearchList query={query} />
-          </Suspense>
+          </Suspense> */}
+
+          <SearchingList query={query} />
         </div>
 
         {/* <div className="mt-14 grid grid-cols-4 md:grid-cols-1 gap-5">

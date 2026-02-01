@@ -62,6 +62,15 @@ export async function GET(
 
     return res;
   }
+
+  if (type == "searchStores") {
+    const city = searchParams.get("city");
+    const query = searchParams.get("query");
+
+    const res = await searchStores(request, city, query);
+
+    return res;
+  }
 }
 
 async function calcEatDeliveryPrice(request: NextRequest) {
@@ -205,3 +214,17 @@ async function getUserAddresses(request: NextRequest) {
   }
 }
 
+async function searchStores(request: NextRequest, city: any, query: any) {
+  const api = serverAxios();
+  try {
+    const response = await api.get(`web/search-new/${query}?city=${city}`);
+
+    if (response.data.status) {
+      return NextResponse.json(response.data.data);
+    } else {
+      return NextResponse.json(null);
+    }
+  } catch (err: any) {
+    return NextResponse.json(null);
+  }
+}
