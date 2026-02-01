@@ -87,7 +87,7 @@ const AddressModal: FC<{}> = ({}) => {
     hideModal();
   };
 
-  const useSavedAddress = (addr: any) => {
+  const handleSavedAddress = (addr: any) => {
     const newx = {
       state: addr?.state,
       city: addr?.city,
@@ -95,6 +95,7 @@ const AddressModal: FC<{}> = ({}) => {
       latitude: addr?.lat,
       longitude: addr?.lng,
     };
+    
     setStoreAddress(newx);
     hideModal();
   };
@@ -171,7 +172,7 @@ const AddressModal: FC<{}> = ({}) => {
             {savedAddr?.map((l: any, i: any) => (
               <div key={i}
                 className="w-full flex items-start gap-2 cursor-pointer"
-                onClick={() => useSavedAddress(l)}
+                onClick={() => handleSavedAddress(l)}
               >
                 <TbLocation size={20} className="mt-1" />
                 <div className="">
