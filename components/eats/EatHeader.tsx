@@ -44,8 +44,14 @@ function TopUser({ user }: { user: any }) {
   };
 
   const handleOrderHistory = () => {
-    showModal(<OrderHistoryModal />);
     setShowDropDown(false);
+    showModal(<OrderHistoryModal />);
+    
+  };
+
+   const handleWallet = () => {
+    setShowDropDown(false);
+    showModal(<WalletModal />);
   };
 
   const toggleDropDown = () => {
@@ -89,7 +95,7 @@ function TopUser({ user }: { user: any }) {
               <div className="w-full px-4 py-4 space-y-6 cursor-pointer">
                 <div
                   className="w-full flex items-center"
-                  onClick={() => showModal(<WalletModal />)}
+                  onClick={handleWallet}
                 >
                   <div className="flex-1 flex items-center gap-3">
                     <IoWalletOutline size={17} />
@@ -290,7 +296,7 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
 
   const shortAddress = !!address?.address
     ? shortenWords(getAddressLabel(address?.address), 15)
-    : "";
+    : "Enter your delivery address";
 
   const isSearchPage = pathname.includes("search");
 
@@ -320,7 +326,7 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
                 size={25}
                 className="text-[var(--primary-color)]"
               />
-              <div className="text-lg font-medium">{shortAddress}</div>
+              <div className="text-lg md:text-base font-medium whitespace-nowrap">{shortAddress}</div>
               <BiChevronDown
                 size={22}
                 className="text-[var(--primary-color)]"
@@ -349,7 +355,7 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
               <>
                 {user?.uuid != "GUEST" && (
                   <div
-                    className="flex items-center gap-2 cursor-pointer"
+                    className="flex items-center gap-2 cursor-pointer md:hidden"
                     onClick={() => showModal(<WalletModal />)}
                   >
                     <FaWallet className="text-gray-600" size={20} />

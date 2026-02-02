@@ -28,7 +28,7 @@ const UpModal: FC<{ closable?: boolean }> = ({ closable }) => {
       )}
       <div className="px-10 flex flex-col justify-center items-center">
         <p className="mt-10 text-4xl font-bold text-center">
-          Use the mobile App
+          It’s simpler using the app
         </p>
         <div className="flex flex-col items-center justify-start gap-2 mt-12">
           <PlayStoreLink />
@@ -40,7 +40,7 @@ const UpModal: FC<{ closable?: boolean }> = ({ closable }) => {
   );
 };
 
-const DownloadAppModal: FC<{ closable?: boolean }> = ({closable = false}) => {
+const DownloadAppModal: FC<{ closable?: boolean }> = ({ closable = false }) => {
   const { showModal, hideModal } = useShrideModal();
   const isMobile = useMediaQuery(
     "(min-width: 0px) and (max-width: 1000px)",

@@ -12,6 +12,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "shrideapp.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "shrideapp.com.ng",
         port: "",
         pathname: "/**",

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
 import FooterHero from "@/components/FooterHero";
+import Header from "@/components/Header";
 
 export default function Business() {
   const isMobile = useMediaQuery(
@@ -30,6 +31,7 @@ export default function Business() {
 
   return (
     <div className="w-full lg:mt-10 overflow-hidden">
+      <Header />
       <section className="w-full flex md:flex-col justify-between pl-[50px] md:pl-[20px]">
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
           <p className="text-[4em] leading-tight md:text-[2.5em] md:text-center font-bold">
