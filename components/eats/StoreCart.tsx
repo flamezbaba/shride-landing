@@ -24,7 +24,7 @@ import toast from "react-hot-toast";
 import { LiaSpinnerSolid } from "react-icons/lia";
 import OrderDoneModal from "../modals/OrderDoneModal";
 import AddressModal from "../modals/AddressModal";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function StoreCart({
   storeId,
@@ -43,6 +43,8 @@ export default function StoreCart({
     setStoreCart,
     address: zusAddr,
   } = useUserStore();
+
+  const router = useRouter();
 
   const [stage, setStage] = useState<"check" | "order">("check");
   const [tipOption, setTipOption] = useState<"custom" | "enter">("custom");
@@ -63,7 +65,11 @@ export default function StoreCart({
 
   useEffect(() => {
     const storePos = cart?.find((s: any) => s?.store_id == storeId);
-    // console.log("storePos", cart);
+    // console.log("storePos", storePos);
+    if (!storePos?.carts) {
+      router.push(`/stores/${storeId}`);
+    }
+
     setsStoreCart(storePos);
 
     getServiceFee();
@@ -361,7 +367,7 @@ export default function StoreCart({
   return (
     <div className="w-full">
       {isCheckOutPage && (
-        <div className="px-4">
+        <div className="px-4 mb-5">
           <p className="text-lg font-medium capitalize">
             {storeData?.store_name} - ({storeCart?.carts?.length || 0}{" "}
             {storeCart?.carts?.length

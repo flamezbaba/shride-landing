@@ -388,7 +388,7 @@ const PickProductModal: FC<{ productData: any }> = ({ productData }) => {
           {/* add to cart */}
 
           <div className="w-full px-4 mt-3 border-b-4 border-b-gray-100 pb-4">
-            <p className="font-medium text-xl capitalize">{product?.name}</p>
+            <p className="font-medium text-xl md:text-base capitalize">{product?.name}</p>
             <p className="text-xs">{product?.description}</p>
 
             <div className="w-full flex items-center justify-between">

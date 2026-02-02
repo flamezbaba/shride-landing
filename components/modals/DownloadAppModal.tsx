@@ -44,6 +44,7 @@ const DownloadAppModal: FC<{ closable?: boolean }> = ({closable = false}) => {
   const { showModal, hideModal } = useShrideModal();
   const isMobile = useMediaQuery(
     "(min-width: 0px) and (max-width: 1000px)",
+    // false,
     closable,
   );
 
@@ -51,7 +52,7 @@ const DownloadAppModal: FC<{ closable?: boolean }> = ({closable = false}) => {
 
   useEffect(() => {
     if (isMobile) {
-      showModal(<UpModal closable={closable} />);
+      showModal(<UpModal closable={true} />);
     } else {
       hideModal();
     }

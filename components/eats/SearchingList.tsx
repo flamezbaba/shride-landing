@@ -33,7 +33,7 @@ export default function SearchingList({ query }: { query: string }) {
     setIsLoading(false);
   };
 
-  if (!searchResults)
+  if (isLoading)
     return (
       // <div className="mt-10 w-full flex flex-col justify-center items-center">
       //   <img src="/img/webeats/search.png" alt="" className="w-[200px]" />

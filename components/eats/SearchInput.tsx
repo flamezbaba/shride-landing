@@ -39,8 +39,7 @@ export default function SearchInput() {
         type="text"
         className="flex-1 h-full bg-transparent text-center text-lg px-3 outline-none focus:outline-none placeholder:text-gray-400"
         placeholder="what are you craving ?"
-        // onChange={(e) => handleSearch(e.target.value)}
-        value={searchParams.get("q")?.toString()}
+        defaultValue={searchParams.get("q")?.toString()}
         onChange={(e: any) => setSearchText(e.target.value)}
       />
     </div>

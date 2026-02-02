@@ -16,11 +16,6 @@ export default function Product({ product }: { product: any }) {
       className="min-h-[250px] ring-2 ring-gray-300 rounded-md px-2 py-2 cursor-pointer"
     >
       <div className="h-[160px] w-full rounded-md overflow-hidden relative">
-        {/* <img
-          src={product?.image_url}
-          alt=""
-          className="object-cover h-full w-full"
-        /> */}
         <Image
           src={product?.image_url}
           alt={product?.name}
@@ -31,7 +26,7 @@ export default function Product({ product }: { product: any }) {
         />
       </div>
 
-      <div className="w-full flex gap-5 items-start justify-between mt-[15px]">
+      <div className="w-full flex md:flex-wrap gap-5 items-start justify-between mt-[15px]">
         <div className="">
           <p className="text-xl capitalize font-medium">{product?.name}</p>
           <p className="text-xs text-gray-600">{product?.description}</p>

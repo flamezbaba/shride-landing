@@ -221,7 +221,7 @@ export default function ViewOrder({
 
   return (
     <div className="w-full">
-      <div className="mt-5 w-8/12">
+      <div className="mt-5 w-8/12 md:w-full">
         {orderData?.status == "delivered" ? (
           <p className="text-3xl font-bold text-green-600">Order Completed</p>
         ) : (

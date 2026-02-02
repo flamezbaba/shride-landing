@@ -66,7 +66,7 @@ export default async function CheckoutPage({ params }: Props) {
 
           <div className="w-1/3 md:w-full">
             <img
-              src="https://cloud.shrideapp.com/pop-ads/FLjyePbtN507gv2Gehmr05d6kHlcQF1xpTVA7ajh.png"
+              src="https://cloud.shrideapp.com/pop-ads/KNmj9Uk5QZUa33xC2UtVMzmPAPgUD5AzKKriXC3j.png"
               alt=""
               className=""
             />

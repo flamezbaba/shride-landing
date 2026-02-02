@@ -133,7 +133,7 @@ export default function TrendingStores() {
             </div>
 
             <div className="mt-3">
-              <div className="w-full grid grid-cols-4 gap-5 mt-3 s-none">
+              <div className="w-full grid grid-cols-4 md:grid-cols-1 gap-5 mt-3 s-none">
                 {/* {homeEats?.hand_picked?.splice(0, 4)?.map((r: any, i: any) => ( */}
                 {homeEats?.hand_picked?.map((r: any, i: any) => (
                   <Store key={i} store={r} />
@@ -148,7 +148,7 @@ export default function TrendingStores() {
             </div>
 
             <div className="mt-3">
-              <div className="w-full grid grid-cols-4 gap-5 mt-3 s-none">
+              <div className="w-full grid grid-cols-4 md:grid-cols-1 gap-5 mt-3 s-none">
                 {/* {homeEats?.fav_res?.splice(0, 4)?.map((r: any, i: any) => ( */}
                 {homeEats?.fav_res?.map((r: any, i: any) => (
                   <Store key={i} store={r} />
@@ -193,7 +193,7 @@ export default function TrendingStores() {
                 </div>
 
                 <div className="mt-3">
-                  <div className="w-full grid grid-cols-4 gap-5 mt-3 s-none">
+                  <div className="w-full grid grid-cols-4 md:grid-cols-1 gap-5 mt-3 s-none">
                     {[...Array(4)]?.map((_: any, i: any) => (
                       <StoreTransition key={i} />
                     ))}
@@ -207,7 +207,7 @@ export default function TrendingStores() {
                 </div>
 
                 <div className="mt-3">
-                  <div className="w-full grid grid-cols-4 gap-5 mt-3 s-none">
+                  <div className="w-full grid grid-cols-4 md:grid-cols-1 gap-5 mt-3 s-none">
                     {[...Array(4)]?.map((_: any, i: any) => (
                       <StoreTransition key={i} />
                     ))}
@@ -223,7 +223,7 @@ export default function TrendingStores() {
         <div className="w-full px-[50px] md:px-[20px] py-[10px] mt-14">
           <p className="font-semibold text-2xl">All Restaurants</p>
 
-          <div className="w-full grid grid-cols-4 gap-5 mt-3 s-none">
+          <div className="w-full grid grid-cols-4 md:grid-cols-1 gap-5 mt-3 s-none">
             {paginatedStore?.map((rx: any, i: any) => (
               <Store key={i} store={rx} />
             ))}

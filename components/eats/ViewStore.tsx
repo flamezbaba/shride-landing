@@ -12,6 +12,8 @@ import StoreCart from "./StoreCart";
 import { useUserStore } from "@/store/user";
 import { usePathname } from "next/navigation";
 import { BsStarFill } from "react-icons/bs";
+import Link from "next/link";
+import pluralize from "pluralize";
 
 export default function ViewStore({
   store,
@@ -56,21 +58,14 @@ export default function ViewStore({
     <div className="w-full">
       <section className="w-full px-[50px] md:px-[20px] mt-5">
         <div className="w-full h-[350px] rounded-2xl overflow-hidden relative">
-          {/* <img
-              src={store?.cover_url}
-              alt=""
-              className="object-cover w-full h-full"
-            /> */}
           <Image
             src={store?.cover_url}
             alt=""
-            // placeholder="blur"
             fill
             objectFit="cover"
             objectPosition="center"
-            // blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg=="
           />
-          <div className="absolute bottom-3 w-full flex items-center justify-between px-10">
+          <div className="absolute bottom-3 w-full flex md:flex-col md:gap-10 items-center justify-between px-10">
             <div className="w-[160px] h-[160px] rounded-full overflow-hidden shadow-md">
               <img
                 src={store?.logo_url}
@@ -97,9 +92,9 @@ export default function ViewStore({
           </div>
         </div>
 
-        <div className="w-full flex justify-between items-start gap-4 mt-6">
+        <div className="w-full flex md:flex-wrap justify-between items-start gap-4 mt-6">
           <div className="">
-            <div className="text-5xl font-bold capitalize">
+            <div className="text-5xl md:text-3xl font-bold lg:whitespace-nowrap md:whitespace-normal capitalize">
               {store?.store_name}
             </div>
             <div className="flex items-center gap-5">
@@ -118,19 +113,32 @@ export default function ViewStore({
             </div>
           </div>
 
-          <div className="flex flex-col items-end">
-            <div className="bg-[var(--primary-color)] w-auto rounded-sm px-4 py-1 text-white text-xs font-medium">
+          <div className="w-full flex flex-col items-end">
+            <div className="bg-[var(--primary-color)] w-auto rounded-sm px-4 py-1 text-white text-xs font-medium md:hidden">
               Delivery
             </div>
 
-            <div className="ring-2 ring-gray-300 h-[30px] w-[300px] rounded-md flex items-center gap-2 px-3 mt-2">
-              <BiSearch size={18} className="text-gray-400" />
-              <input
-                type="text"
-                className="flex-1 h-full bg-transparent px-3 outline-none focus:outline-none text-sm"
-                placeholder="Search Store"
-                onChange={(e: any) => setSearchText(e.target.value)}
-              />
+            <div className="w-full flex items-center justify-end gap-4 mt-0">
+              <div className="ring-2 ring-gray-300 h-[30px] md:flex-1 lg:w-[300px] rounded-md flex items-center gap-2 px-3 mt-2">
+                <BiSearch size={18} className="text-gray-400" />
+                <input
+                  type="text"
+                  className="flex-1 h-full bg-transparent px-3 outline-none focus:outline-none text-sm"
+                  placeholder="Search Store"
+                  onChange={(e: any) => setSearchText(e.target.value)}
+                />
+              </div>
+
+              {storeCart?.carts?.length > 0 && (
+                <Link
+                  href={`/checkout/${store?.id}`}
+                  prefetch
+                  className="bg-[var(--primary-color)] lg:hidden hover:scale-95 cursor-pointer text-center rounded-md px-4 py-2 text-white text-xs font-medium"
+                >
+                  View Cart ({storeCart?.carts?.length}{" "}
+                  {pluralize("item", storeCart?.carts?.length)})
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -138,13 +146,17 @@ export default function ViewStore({
 
       <section className="w-full px-[50px] md:px-[20px] mt-5 flex gap-10 relative overflow-hidden">
         <div
-          className={clsx([storeCart?.carts?.length > 0 ? "w-3/4" : "w-4/4"])}
+          className={clsx([
+            storeCart?.carts?.length > 0
+              ? "w-3/4 md:w-full"
+              : "w-4/4 md:w-full",
+          ])}
         >
           <div className="w-full flex items-center">
             <div className="flex justify-center items-center">
               <BiMenu size={25} />
             </div>
-            <div className="flex-1 flex items-start flex-wrap h-[30px] gap-0 overflow-scroll s-none">
+            <div className="flex-1 flex justify-start h-[30px] gap-0 overflow-scroll s-none">
               {storeMenuAndProducts?.map((item: any, index: any) => (
                 <div
                   key={index}
@@ -175,7 +187,7 @@ export default function ViewStore({
                   ? "grid grid-cols-3"
                   : "grid grid-cols-4",
               ],
-              `gap-5 mt-5 pb-10`,
+              `gap-5 mt-5 pb-10 md:grid-cols-1`,
             )}
           >
             {searchedProductList?.map((p: any, i: any) => (
@@ -185,7 +197,7 @@ export default function ViewStore({
         </div>
 
         {storeCart?.carts?.length > 0 && (
-          <div className="w-1/4 border-t-2 border-l-2 border-r-2 mt-[54px] rounded-tr-lg rounded-tl-lg">
+          <div className="w-1/4 md:hidden border-t-2 border-l-2 border-r-2 mt-[54px] rounded-tr-lg rounded-tl-lg">
             {/* <div className="w-full h-[300px] flex flex-col justify-center items-center">
               <img src="/img/webeats/pack.png" alt="" className="w-[90px]" />
               <p className="text-center mt-5">
