@@ -86,24 +86,22 @@ export default function StoreCart({
   }, [distance]);
 
   const handleDeleteSlot = (index: any) => {
-    if (storeCart?.carts.length > 0) {
+    if (storeCart?.carts.length > 1) {
       const n = storeCart?.carts.filter((p: any, i: any) => i != index);
-      // setsStoreCart({ ...storeCart, carts: n });
+      setsStoreCart({ ...storeCart, carts: n });
 
-      if (n.length == 1) {
-        handleClearItems();
-      } else {
-        // update store cart
-        let newCart = cart.map((ct: any, index: any) => {
-          if (ct?.store_id == storeId) {
-            ct.carts = n;
-          }
+      // update store cart
+      let newCart = cart.map((ct: any, index: any) => {
+        if (ct?.store_id == storeId) {
+          ct.carts = n;
+        }
 
-          return ct;
-        });
+        return ct;
+      });
 
-        setStoreCart(newCart);
-      }
+      setStoreCart(newCart);
+    } else {
+      handleClearItems();
     }
   };
 
@@ -258,6 +256,10 @@ export default function StoreCart({
   };
 
   const placeOrder = async () => {
+    handleClearItems();
+
+    return;
+
     if (!distance) {
       toast.error("Select another address");
       return;
@@ -299,7 +301,7 @@ export default function StoreCart({
     if (!res?.data) {
       toast.error("Order Failed, try again.");
     } else {
-      // handleClearItems();
+      handleClearItems();
       toast.success("Order Successful.");
       showModal(<OrderDoneModal order={res.data} />);
     }
