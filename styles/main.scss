@@ -1,0 +1,29 @@
+
+.modal-wrapper {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+
+  .modal-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .modal-content {
+      min-height: 20px;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+  }
+}

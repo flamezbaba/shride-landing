@@ -45,7 +45,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/" className="">
+                <a href="/stores" className="">
                   Shride Eats
                 </a>
               </li>
@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="/terms" className="">
-                  Terms of Service
+                  Terms of Use
                 </a>
               </li>
               

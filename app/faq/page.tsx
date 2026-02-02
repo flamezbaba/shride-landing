@@ -7,6 +7,7 @@ import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
 import FooterHero from "@/components/FooterHero";
 import Faqs from "@/components/Faqs";
+import Header from "@/components/Header";
 
 export default function Delivery() {
   const isMobile = useMediaQuery(
@@ -32,6 +33,7 @@ export default function Delivery() {
 
   return (
     <div className="w-full lg:mt-20 overflow-hidden">
+      <Header />
       <section className="w-full flex md:flex-col justify-between px-[50px] md:px-[20px]">
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
           <p className="text-[5em] leading-tight md:text-[2.5em] md:text-center font-bold">
