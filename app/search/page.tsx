@@ -106,7 +106,7 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <div className="w-full mt-0 overflow-hidden">
-      <DownloadAppModal />
+      {/* <DownloadAppModal /> */}
       <div className="">
         <EatHeader />
       </div>

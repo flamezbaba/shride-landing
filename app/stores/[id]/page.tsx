@@ -73,7 +73,7 @@ export default async function ViewStorePage({ params }: Props) {
 
   return (
     <div className="w-full mt-0 overflow-hidden">
-      <DownloadAppModal />
+      {/* <DownloadAppModal /> */}
       <div className="">
         <EatHeader userProps={userData} />
       </div>

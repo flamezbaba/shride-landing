@@ -188,7 +188,7 @@ function TopCart({ user }: { user: any }) {
       </div>
 
       {showDropDown && (
-        <div className="top-[calc(100%_+_4px)] right-0 z-20 absolute w-[300px] rounded-md md:w-[330px] bg-white ring-[1px] ring-gray-200 shadow-lg">
+        <div className="top-[calc(100%_+_4px)] md:-right-10 lg:right-0 z-20 absolute w-[300px] rounded-md md:w-[330px] bg-white ring-[1px] ring-gray-200 shadow-lg">
           {cart?.length > 0 ? (
             <div className="w-full px-4 py-4 space-y-5">
               {cart.map((c: any, i: any) => (
@@ -221,7 +221,9 @@ function TopCart({ user }: { user: any }) {
             </div>
           ) : (
             <div className="w-full h-[130px] px-4 py-4 flex flex-col text-center items-center justify-center">
-              <p className="text-lg font-medium">There are no items in your cart</p>
+              <p className="text-lg font-medium">
+                There are no items in your cart
+              </p>
               {/* <p className="text-lg font-medium">There are no items in your cart</p> */}
 
               <Link href="/stores" className="btn mt-4">
@@ -294,13 +296,25 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
 
   return (
     <header className="w-full px-[50px] md:px-[20px] py-[10px] mt-5 bg-white flex md:flex-col md:gap-5 justify-between items-center mb-10">
-      <div className="flex md:flex-col items-center gap-10 md:gap-3">
-        <a href="/" className="">
-          <img src="/img/shride-logo-black.png" width="100" alt="" />
-        </a>
+      <div className="md:w-full flex md:flex-col items-center gap-10 md:gap-3">
+        <div className="md:w-full flex gap-5 items-center justify-between">
+          <a href="/" className="">
+            <img src="/img/shride-logo-black.png" width="100" alt="" />
+          </a>
 
-        <div className="">
-          <div className="flex items-center gap-5 relative cursor-pointer">
+          <div className="flex items-center gap-4 lg:hidden">
+            <div className="relative">
+              <TopCart user={user} />
+            </div>
+
+            <div className="relative">
+              <TopUser user={user} />
+            </div>
+          </div>
+        </div>
+
+        <div className="md:w-full md:mt-5">
+          <div className="flex items-center md:justify-center gap-5 relative cursor-pointer">
             <div onClick={() => openModal()} className="flex gap-1">
               <HiOutlineLocationMarker
                 size={25}
@@ -365,7 +379,7 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
             />
           </div>
         )}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 md:hidden">
           <div className="relative">
             <TopCart user={user} />
           </div>

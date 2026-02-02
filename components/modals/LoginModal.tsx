@@ -11,6 +11,7 @@ import { IoCloseSharp, IoWarning } from "react-icons/io5";
 import { LiaSpinnerSolid } from "react-icons/lia";
 import axios from "axios";
 import SignupModal from "./SignupModal";
+import ForgotPasswordModal from "./ForgotPasswordModal";
 
 const LoginModal: FC<{}> = ({}) => {
   const { hideModal, showModal } = useShrideModal();
@@ -84,6 +85,15 @@ const LoginModal: FC<{}> = ({}) => {
                 onChange={(e: any) => setPassword(e.target.value)}
               />
             </div>
+
+            <p className="text-right mt-1 font-medium">
+              <span
+                onClick={() => showModal(<ForgotPasswordModal />)}
+                className="text-[var(--primary-color)] cursor-pointer"
+              >
+                Forgot Password
+              </span>
+            </p>
           </div>
 
           <div className="">
@@ -100,7 +110,12 @@ const LoginModal: FC<{}> = ({}) => {
             </button>
             <p className="text-center mt-2 text-gray-600 font-medium">
               New to Shride?{" "}
-              <span onClick={() => showModal(<SignupModal />)} className="text-[var(--primary-color)] cursor-pointer">sign up</span>
+              <span
+                onClick={() => showModal(<SignupModal />)}
+                className="text-[var(--primary-color)] cursor-pointer"
+              >
+                sign up
+              </span>
             </p>
           </div>
         </div>

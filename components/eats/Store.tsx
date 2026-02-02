@@ -10,8 +10,8 @@ import Image from "next/image";
 export default function Store({ store }: { store: any }) {
   return (
     <Link
-      href={`/stores/${store?.id}`}
-      className="min-h-[250px] ring-2 ring-gray-300 rounded-md px-2 py-2 cursor-pointer"
+      href={`/stores/${store?.id}`} prefetch
+      className="min-h-[250px] ring-2 ring-gray-300 rounded-md px-2 py-2 cursor-pointer overflow-hidden"
     >
       <div className="h-[160px] w-full rounded-md overflow-hidden relative">
         {/* <img
