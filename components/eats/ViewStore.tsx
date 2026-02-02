@@ -130,14 +130,16 @@ export default function ViewStore({
               </div>
 
               {storeCart?.carts?.length > 0 && (
-                <Link
-                  href={`/checkout/${store?.id}`}
-                  prefetch
-                  className="bg-[var(--primary-color)] lg:hidden hover:scale-95 cursor-pointer text-center rounded-md px-4 py-2 text-white text-xs font-medium"
-                >
-                  View Cart ({storeCart?.carts?.length}{" "}
-                  {pluralize("item", storeCart?.carts?.length)})
-                </Link>
+                <div className="lg:hidden w-full z-10 fixed bottom-14 flex justify-center items-center">
+                  <Link
+                    href={`/checkout/${store?.id}`}
+                    prefetch
+                    className="bg-[var(--primary-color)] hover:scale-95 cursor-pointer text-center rounded-md px-5 py-3 text-white text-xs font-medium shadow-md"
+                  >
+                    View Cart ({storeCart?.carts?.length}{" "}
+                    {pluralize("item", storeCart?.carts?.length)})
+                  </Link>
+                </div>
               )}
             </div>
           </div>
