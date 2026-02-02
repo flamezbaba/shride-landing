@@ -17,32 +17,31 @@ import Link from "next/link";
 
 export default async function StoresPage() {
   const userData = await serverFetch(getReloadUser());
-  const homeEats = await serverFetch(getEatHomepage());
 
   // if (!homeEats) {
   //   notFound();
   // }
 
   return (
-    <div className="w-full mt-0 overflow-hidden">
-      <DownloadAppModal />
-      <div className="">
-        <EatHeader userProps={userData} />
+      <div className="w-full mt-0 overflow-hidden">
+        <DownloadAppModal />
+        <div className="">
+          <EatHeader userProps={userData} />
+        </div>
+
+        <section className="w-full px-[50px] md:px-[20px] mt-12">
+          <ExploreCategories />
+        </section>
+
+        <section className="w-full px-[50px] md:px-[20px] py-[5px] mt-1">
+          <StoreHomeSlides />
+        </section>
+
+        <TrendingStores />
+
+        <section className="">
+          <FooterHero bgColor="#000" textColor="#fff" />
+        </section>
       </div>
-
-      <section className="w-full px-[50px] md:px-[20px] mt-12">
-        <ExploreCategories />
-      </section>
-
-      <section className="w-full px-[50px] md:px-[20px] py-[5px] mt-1">
-        <StoreHomeSlides />
-      </section>
-
-      <TrendingStores />
-
-      <section className="">
-        <FooterHero bgColor="#000" textColor="#fff" />
-      </section>
-    </div>
   );
 }

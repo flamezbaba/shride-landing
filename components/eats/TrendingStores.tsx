@@ -20,7 +20,7 @@ export default function TrendingStores() {
 
   const [homeEats, setHomeEats] = useState<any>(null);
   const [paginatedStore, setPaginatedStore] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [page, setPage] = useState<any>(1);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [storeLoading, setStoreLoading] = useState<boolean>(true);
@@ -90,7 +90,7 @@ export default function TrendingStores() {
           <section className="w-full px-[50px] md:px-[20px] py-[10px] mt-14">
             <div className="">
               <p className="font-semibold text-2xl">
-                Restaurants Trending Today{" "}
+                Trending Restaurants Today{" "}
               </p>
             </div>
 
@@ -163,7 +163,12 @@ export default function TrendingStores() {
             <div className="w-full flex flex-col justify-center items-center px-10 py-10 mt-10">
               <BiStore size={40} />
               <p className="text-lg">No stores found here!</p>
-              <p className="mt-1 text-base">Please try another location</p>
+              <p
+                className="mt-1 text-base cursor-pointer"
+                onClick={() => showModal(<AddressModal />)}
+              >
+                Please try another location
+              </p>
             </div>
           ) : (
             <div className="">
@@ -177,7 +182,10 @@ export default function TrendingStores() {
                 <div className="mt-3">
                   <div className="w-full flex gap-5 overflow-scroll mt-3 s-none">
                     {[...Array(10)]?.map((r: any, i: any) => (
-                      <div key={i} className="inline-flex flex-col items-center justify-center px-4 py-2">
+                      <div
+                        key={i}
+                        className="inline-flex flex-col items-center justify-center px-4 py-2"
+                      >
                         <div className="w-[150px] h-[150px] overflow-hidden rounded-full shadow-lg bg-gray-200 relative animate-pulse"></div>
                       </div>
                     ))}

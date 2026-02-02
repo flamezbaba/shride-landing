@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import "../styles/main.scss";
+import "./../globals.css";
+import "../../styles/main.scss";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageLoader from "@/components/PageLoader";
@@ -22,20 +22,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function WebEatLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Toaster />
-        <div className="w-full bg-white min-h-screen overflow-hidden">
-          {children}
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <div className="w-full">
+      <LocationProvider>
+        <ShrideModalProvider>{children}</ShrideModalProvider>
+      </LocationProvider>
+    </div>
   );
 }

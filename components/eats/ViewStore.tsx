@@ -134,7 +134,7 @@ export default function ViewStore({
                   <Link
                     href={`/checkout/${store?.id}`}
                     prefetch
-                    className="bg-[var(--primary-color)] hover:scale-95 cursor-pointer text-center rounded-md px-5 py-3 text-white text-xs font-medium shadow-md"
+                    className="bg-[var(--primary-color)] hover:scale-95 cursor-pointer text-center rounded-md px-5 py-3 text-white text-base font-medium shadow-md"
                   >
                     View Cart ({storeCart?.carts?.length}{" "}
                     {pluralize("item", storeCart?.carts?.length)})

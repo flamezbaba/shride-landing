@@ -94,22 +94,22 @@ const OrderHistoryModal: FC<{}> = () => {
                 <div
                   onClick={() => gotoLink(item)}
                   key={index}
-                  className="w-full flex items-center gap-10 justify-between mb-10"
+                  className="w-full flex items-start gap-10 justify-between mb-10"
                 >
                   <div className="flex-1 flex gap-2">
                     {item?.items?.[0]?.product?.image_url && (
                       <img
                         src={item?.items?.[0]?.product?.image_url}
                         alt=""
-                        className="w-[70px] h-[70px] rounded-lg object-cover"
+                        className="w-[70px] h-[70px] md:w-[40px] md:h-[40px] rounded-lg object-cover"
                       />
                     )}
 
                     <div className="">
-                      <p className="text-base font-semibold capitalize">
+                      <p className="text-base md:text-sm font-semibold capitalize">
                         {item?.store?.name}
                       </p>
-                      <p className="">
+                      <p className=" md:text-sm">
                         {item?.created_at_obj?.withDayN} . {"  "}{" "}
                         {item?.items?.length || 0}{" "}
                         {pluralize("item", item?.items?.length || 0)}
@@ -120,7 +120,7 @@ const OrderHistoryModal: FC<{}> = () => {
                   <div className="">
                     <p
                       className={clsx(
-                        `text-base font-semibold text-right capitalize ${getStatusColor(item.status)}`,
+                        `text-base  md:text-sm font-semibold text-right capitalize ${getStatusColor(item.status)}`,
                       )}
                     >
                       {item?.status}

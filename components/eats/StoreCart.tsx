@@ -256,9 +256,9 @@ export default function StoreCart({
   };
 
   const placeOrder = async () => {
-    handleClearItems();
+    // handleClearItems();
 
-    return;
+    // return;
 
     if (!distance) {
       toast.error("Select another address");
@@ -396,7 +396,7 @@ export default function StoreCart({
                 clipRule="evenodd"
               />
             </svg>
-            <p className="text-xl font-medium">Order Summary</p>
+            <p className="text-xl md:text-base font-medium">Order Summary</p>
           </div>
           {isCheckOutPage && (
             <Link
