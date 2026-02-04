@@ -25,6 +25,7 @@ import { LiaSpinnerSolid } from "react-icons/lia";
 import OrderDoneModal from "../modals/OrderDoneModal";
 import AddressModal from "../modals/AddressModal";
 import { usePathname, useRouter } from "next/navigation";
+import WalletModal from "../modals/WalletModal";
 
 export default function StoreCart({
   storeId,
@@ -520,7 +521,10 @@ export default function StoreCart({
 
               <div className="mt-3 space-y-7">
                 <div className="w-full flex items-center justify-between cursor-pointer gap-5">
-                  <div className="flex-1 flex items-start gap-2">
+                  <div
+                    className="flex-1 flex items-start gap-2"
+                    onClick={() => showModal(<WalletModal />)}
+                  >
                     <BiWallet size={16} />
                     <div className="">
                       <p className="text-base font-medium leading-none">
