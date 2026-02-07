@@ -6,6 +6,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "static.shrideapp.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "cloud.shrideapp.com",
         port: "",
         pathname: "/**",

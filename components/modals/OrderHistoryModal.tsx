@@ -94,7 +94,7 @@ const OrderHistoryModal: FC<{}> = () => {
                 <div
                   onClick={() => gotoLink(item)}
                   key={index}
-                  className="w-full flex items-start gap-10 justify-between mb-10"
+                  className="w-full flex items-start gap-10 justify-between mb-10 cursor-pointer"
                 >
                   <div className="flex-1 flex gap-2">
                     {item?.items?.[0]?.product?.image_url && (
