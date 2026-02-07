@@ -28,6 +28,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useDebounce } from "@reactuses/core";
 import WalletModal from "../modals/WalletModal";
 import OtpModal from "../modals/OtpModal";
+import SupportModal from "../modals/SupportModal";
+import DeliveryHistoryModal from "../modals/DeliveryHistoryModal";
 
 function TopUser({ user }: { user: any }) {
   const { showModal } = useShrideModal();
@@ -46,12 +48,21 @@ function TopUser({ user }: { user: any }) {
   const handleOrderHistory = () => {
     setShowDropDown(false);
     showModal(<OrderHistoryModal />);
-    
   };
 
-   const handleWallet = () => {
+  const handleTripHistory = () => {
+    setShowDropDown(false);
+    showModal(<DeliveryHistoryModal />);
+  };
+
+  const handleWallet = () => {
     setShowDropDown(false);
     showModal(<WalletModal />);
+  };
+
+  const handleSupport = () => {
+    setShowDropDown(false);
+    showModal(<SupportModal />);
   };
 
   const toggleDropDown = () => {
@@ -128,7 +139,34 @@ function TopUser({ user }: { user: any }) {
                   <BiChevronRight size={22} />
                 </div>
 
-                <div className="w-full flex items-center">
+                <div
+                  onClick={handleTripHistory}
+                  className="w-full flex items-center cursor-pointer"
+                >
+                  <div className="flex-1 flex items-center gap-3">
+                    {/* <IoWalletOutline size={17} /> */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="#000"
+                        fillRule="evenodd"
+                        d="M5.079 5.069c3.795-3.79 9.965-3.75 13.783.069c3.82 3.82 3.86 9.993.064 13.788s-9.968 3.756-13.788-.064a9.81 9.81 0 0 1-2.798-8.28a.75.75 0 1 1 1.487.203a8.31 8.31 0 0 0 2.371 7.017c3.245 3.244 8.468 3.263 11.668.064c3.199-3.2 3.18-8.423-.064-11.668c-3.243-3.242-8.463-3.263-11.663-.068l.748.003a.75.75 0 1 1-.007 1.5l-2.546-.012a.75.75 0 0 1-.746-.747L3.575 4.33a.75.75 0 1 1 1.5-.008zm6.92 2.18a.75.75 0 0 1 .75.75v3.69l2.281 2.28a.75.75 0 1 1-1.06 1.061l-2.72-2.72V8a.75.75 0 0 1 .75-.75"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="text-base">Delivery History</p>
+                  </div>
+                  <BiChevronRight size={22} />
+                </div>
+
+                <div
+                  className="w-full flex items-center"
+                  onClick={handleSupport}
+                >
                   <div className="flex-1 flex items-center gap-3">
                     <BiHeadphone size={17} />
                     <p className="text-base">Support</p>
@@ -326,7 +364,9 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
                 size={25}
                 className="text-[var(--primary-color)]"
               />
-              <div className="text-lg md:text-base font-medium whitespace-nowrap">{shortAddress}</div>
+              <div className="text-lg md:text-base font-medium whitespace-nowrap">
+                {shortAddress}
+              </div>
               <BiChevronDown
                 size={22}
                 className="text-[var(--primary-color)]"

@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script
+      {/* <Script
         src={`https://embed.tawk.to/6981fb982807131c36765928/1jghrtju1`}
         strategy="afterInteractive"
       />
@@ -46,7 +46,7 @@ export default function RootLayout({
           s0.parentNode.insertBefore(s1,s0);
           })();
           `}
-      </Script>
+      </Script> */}
 
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-K0NY0FWW3Y`}
