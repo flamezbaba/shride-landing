@@ -62,7 +62,8 @@ const SupportModal: FC<{}> = () => {
           </a>
 
           <a
-            href="https://static.shrideapp.com/callback.php"
+            // href="https://static.shrideapp.com/callback.php"
+            href="tel:+2348064223253"
             target="_blank"
             className="w-full flex items-start justify-between cursor-pointer"
           >
@@ -72,7 +73,7 @@ const SupportModal: FC<{}> = () => {
                 <p className="font-semibold text-base leading-none">
                   Phone Call
                 </p>
-                <p className="leading-none">Request a call back</p>
+                <p className="leading-none">Call us</p>
               </div>
             </div>
             <BiChevronRight size={30} />

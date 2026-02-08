@@ -18,7 +18,7 @@ export default function Product({ product }: { product: any }) {
       <div className="h-[160px] w-full rounded-md overflow-hidden relative">
         <Image
           src={product?.image_url}
-          alt={product?.name}
+          alt=""
           fill
           objectFit="cover"
           objectPosition="center"
