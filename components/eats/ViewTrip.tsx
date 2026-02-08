@@ -9,6 +9,7 @@ import pluralize from "pluralize";
 import { useEffect, useState } from "react";
 import {
   BiChevronRight,
+  BiInfoSquare,
   BiPhone,
   BiPlusCircle,
   BiSolidPlusCircle,
@@ -80,7 +81,7 @@ export default function ViewTrip({
       stage = 2;
     }
 
-    if (status == 'rider_accepted' || status == 'rider_arrived') {
+    if (status == "rider_accepted" || status == "rider_arrived") {
       stage = 2;
     }
 
@@ -119,7 +120,9 @@ export default function ViewTrip({
               `w-full h-[5px] `,
             )}
           ></div>
-          <p className="font-medium text-base md:text-xs mt-1">Enroute Pickup</p>
+          <p className="font-medium text-base md:text-xs mt-1">
+            Enroute Pickup
+          </p>
         </div>
 
         <div className="">
@@ -158,6 +161,37 @@ export default function ViewTrip({
   return (
     <div className="w-full">
       <div className="mt-5 w-10/12 md:w-full">
+        <div className="flex justify-center items-center w-full">
+          <div
+            onClick={() => window.location.reload()}
+            className="my-4 bg-[var(--primary-color-3)] text-sm text-center rounded-md py-1 px-4 inline-flex items-center gap-2 cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              viewBox="0 0 24 24"
+            >
+              <g className="info-outline">
+                <g fill="#000" className="Vector">
+                  <path
+                    fillRule="evenodd"
+                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10m-10 8a8 8 0 1 0 0-16a8 8 0 0 0 0 16"
+                    clipRule="evenodd"
+                  ></path>
+                  <path
+                    fillRule="evenodd"
+                    d="M12 11a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1"
+                    clipRule="evenodd"
+                  ></path>
+                  <path d="M13 9a1 1 0 1 1-2 0a1 1 0 0 1 2 0"></path>
+                </g>
+              </g>
+            </svg>
+
+            <span>Tap to refresh to see updated information</span>
+          </div>
+        </div>
         {tripData?.status == "completed" ? (
           <div className="w-full flex justify-between items-center gap-5">
             <div className="">
@@ -179,9 +213,7 @@ export default function ViewTrip({
           </div>
         )}
 
-        <div className="">
-          {renderStatus(tripData.status)}
-        </div>
+        <div className="">{renderStatus(tripData.status)}</div>
 
         <div className="flex flex-col items-center justify-center mt-4">
           <div className="px-3 py-1 rounded-sm font-bold ring-2 ring-gray-300">
@@ -198,7 +230,11 @@ export default function ViewTrip({
           <div className="mt-5 w-full flex items-center justify-between pb-2 border-b-2 border-b-gray-300">
             <div className="flex items-center gap-4 mt-5">
               {/* <TbHelmet size={25} /> */}
-              <img src={tripData?.rider?.avatar_url} alt="" className="w-[50px] h-[50px] rounded-full object-cover" />
+              <img
+                src={tripData?.rider?.avatar_url}
+                alt=""
+                className="w-[50px] h-[50px] rounded-full object-cover"
+              />
               <div className="">
                 <p className="text-2xl md:text-sm font-semibold capitalize">
                   {tripData?.rider?.fullname}

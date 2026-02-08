@@ -21,7 +21,7 @@ export default function Store({ store }: { store: any }) {
         /> */}
           <Image
             src={store?.cover_url}
-            alt={store?.store_name}
+            alt=""
             fill
             objectFit="cover" 
             objectPosition="center"
