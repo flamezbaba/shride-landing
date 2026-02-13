@@ -60,7 +60,7 @@ export default async function TripPage({ params }: Props) {
         <div className="px-[50px] md:px-[20px]">
           <Link href="/stores" className="inline-flex items-center gap-2">
             <BsArrowLeft size={17} />
-            <span className="text-base">Back to Homepage</span>
+            <span className="text-base">Back to HomePage</span>
           </Link>
         </div>
         <div className="px-[50px] md:px-[20px] flex md:flex-col justify-between gap-4">
