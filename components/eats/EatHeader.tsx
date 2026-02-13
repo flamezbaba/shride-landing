@@ -28,6 +28,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useDebounce } from "@reactuses/core";
 import WalletModal from "../modals/WalletModal";
 import OtpModal from "../modals/OtpModal";
+import SupportModal from "../modals/SupportModal";
+import DeliveryHistoryModal from "../modals/DeliveryHistoryModal";
 
 function TopUser({ user }: { user: any }) {
   const { showModal } = useShrideModal();
@@ -46,12 +48,21 @@ function TopUser({ user }: { user: any }) {
   const handleOrderHistory = () => {
     setShowDropDown(false);
     showModal(<OrderHistoryModal />);
-    
   };
 
-   const handleWallet = () => {
+  const handleTripHistory = () => {
+    setShowDropDown(false);
+    showModal(<DeliveryHistoryModal />);
+  };
+
+  const handleWallet = () => {
     setShowDropDown(false);
     showModal(<WalletModal />);
+  };
+
+  const handleSupport = () => {
+    setShowDropDown(false);
+    showModal(<SupportModal />);
   };
 
   const toggleDropDown = () => {
@@ -128,7 +139,32 @@ function TopUser({ user }: { user: any }) {
                   <BiChevronRight size={22} />
                 </div>
 
-                <div className="w-full flex items-center">
+                <Link
+                  href="/stores"
+                  className="w-full flex items-center cursor-pointer"
+                >
+                  <div className="flex-1 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><path fill="#000" d="M1 22c0 .54.45 1 1 1h13c.56 0 1-.46 1-1v-1H1zM8.5 9C4.75 9 1 11 1 15h15c0-4-3.75-6-7.5-6m-4.88 4c1.11-1.55 3.47-2 4.88-2s3.77.45 4.88 2zM1 17h15v2H1zM18 5V1h-2v4h-5l.23 2h9.56l-1.4 14H18v2h1.72c.84 0 1.53-.65 1.63-1.47L23 5z"></path></svg>
+                    <p className="text-base">Place Order</p>
+                  </div>
+                  <BiChevronRight size={22} />
+                </Link>
+
+                <Link
+                  href="/make-delivery"
+                  className="w-full flex items-center cursor-pointer"
+                >
+                  <div className="flex-1 flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 32 32"><path fill="#000" d="m29.482 8.624l-10-5.5a1 1 0 0 0-.964 0l-10 5.5a1 1 0 0 0 0 1.752L18 15.591V26.31l-3.036-1.67L14 26.391l4.518 2.485a1 1 0 0 0 .964 0l10-5.5A1 1 0 0 0 30 22.5v-13a1 1 0 0 0-.518-.876M19 5.142L26.925 9.5L19 13.858L11.075 9.5Zm9 16.767l-8 4.4V15.59l8-4.4Z"></path><path fill="#000" d="M10 16H2v-2h8zm2 8H4v-2h8zm2-4H6v-2h8z"></path></svg>
+                    <p className="text-base">Send Items</p>
+                  </div>
+                  <BiChevronRight size={22} />
+                </Link>
+
+                <div
+                  className="w-full flex items-center"
+                  onClick={handleSupport}
+                >
                   <div className="flex-1 flex items-center gap-3">
                     <BiHeadphone size={17} />
                     <p className="text-base">Support</p>
@@ -326,7 +362,9 @@ export default function EatHeader({ userProps }: { userProps?: any }) {
                 size={25}
                 className="text-[var(--primary-color)]"
               />
-              <div className="text-lg md:text-base font-medium whitespace-nowrap">{shortAddress}</div>
+              <div className="text-lg md:text-base font-medium whitespace-nowrap">
+                {shortAddress}
+              </div>
               <BiChevronDown
                 size={22}
                 className="text-[var(--primary-color)]"

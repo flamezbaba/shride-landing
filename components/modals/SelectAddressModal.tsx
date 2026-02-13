@@ -16,7 +16,10 @@ import { LiaSpinnerSolid } from "react-icons/lia";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { TbLocation } from "react-icons/tb";
 
-const AddressModal: FC<{}> = ({}) => {
+const SelectAddressModal: FC<{ fnSelect: any; title: any }> = ({
+  fnSelect,
+  title,
+}) => {
   const { hideModal } = useShrideModal();
   const { address, hasHydrated, setStoreAddress } = useUserStore();
   const {
@@ -43,8 +46,6 @@ const AddressModal: FC<{}> = ({}) => {
     if (!debouncedText) return;
 
     fnSearchPlaces(debouncedText);
-
-    console.log("Search API call:", debouncedText);
   }, [debouncedText]);
 
   const fnSearchPlaces = async (text: any) => {
@@ -52,8 +53,6 @@ const AddressModal: FC<{}> = ({}) => {
     const res = await searchPlaces(text, latitude, longitude);
     setLocations(res);
     setIsLoading(false);
-
-    console.log("fnSearchPlaces", res);
   };
 
   const clearSearch = () => {
@@ -74,14 +73,14 @@ const AddressModal: FC<{}> = ({}) => {
     const res = await getPlaceViaPlaceID(place);
 
     if (!!res) {
-      setStoreAddress(res);
+      fnSelect(res);
       hideModal();
     }
   };
 
   const useCurrentAddress = () => {
     const newx = { ...locationAddress, latitude, longitude };
-    setStoreAddress(newx);
+    fnSelect(newx);
     hideModal();
   };
 
@@ -94,7 +93,7 @@ const AddressModal: FC<{}> = ({}) => {
       longitude: addr?.lng,
     };
 
-    setStoreAddress(newx);
+    fnSelect(newx);
     hideModal();
   };
 
@@ -155,7 +154,7 @@ const AddressModal: FC<{}> = ({}) => {
         border-gray-200 rounded-lg"
     >
       <div className="w-full flex items-center justify-between gap-5 px-5 py-3 border-b-gray-300 border-b-[1px]">
-        <p className="font-medium text-lg">Delivery address</p>
+        <p className="font-medium text-lg">{title}</p>
         <IoCloseSharp onClick={() => hideModal()} size={28} />
       </div>
 
@@ -251,4 +250,4 @@ const AddressModal: FC<{}> = ({}) => {
   );
 };
 
-export default AddressModal;
+export default SelectAddressModal;

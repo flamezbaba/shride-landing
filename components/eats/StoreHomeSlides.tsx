@@ -27,8 +27,12 @@ export default function StoreHomeSlides() {
         />
       </div>
 
-      <div
+      {/* <div
         onClick={() => showModal(<DownloadAppModal closable={true} />)}
+        className="w-1/2 md:w-full h-[250px] md:h-[100px] rounded-2xl overflow-hidden cursor-pointer"
+      > */}
+      <Link
+        href="/make-delivery" prefetch
         className="w-1/2 md:w-full h-[250px] md:h-[100px] rounded-2xl overflow-hidden cursor-pointer"
       >
         <img
@@ -36,7 +40,7 @@ export default function StoreHomeSlides() {
           alt=""
           className="object-cover md:object-contain w-full h-full"
         />
-      </div>
+      </Link>
     </div>
   );
 }

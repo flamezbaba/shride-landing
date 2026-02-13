@@ -7,11 +7,12 @@ import PlayStoreLink from "@/components/PlayStoreLink";
 import AppleStoreLink from "@/components/AppleStoreLink";
 import FooterHero from "@/components/FooterHero";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 export default function Delivery() {
   const isMobile = useMediaQuery(
     "(min-width: 0px) and (max-width: 850px)",
-    true
+    true,
   );
   const [animateValues, setAnimateValues] = useState<{
     heroRight: number;
@@ -49,6 +50,15 @@ export default function Delivery() {
               your package, take a picture of it and thats it! Welcome to the
               future.
             </p>
+          </div>
+
+          <div className="mt-4">
+            <Link
+              href="/make-delivery"
+              className="inline-flex gap-2 text-sm items-center rounded-full bg-[#131313] px-5 py-3 text-white hover:scale-95 duration-300"
+            >
+              Make a delivery now
+            </Link>
           </div>
         </div>
         <div className="w-1/2 md:w-full md:mt-[30px] relative">
@@ -120,8 +130,8 @@ export default function Delivery() {
         <div className="w-1/2 md:w-full flex flex-col justify-center md:items-center">
           <p className="text-[4em] leading-tight md:text-[2.5em] md:text-center font-bold">
             Small, medium or large{" "}
-            <span className="text-[var(--primary-color)]">Items?</span>
-             {' '}we've got you.
+            <span className="text-[var(--primary-color)]">Items?</span> we've
+            got you.
           </p>
         </div>
         <div className="w-1/2 md:w-full md:mt-[30px] relative">

@@ -7,6 +7,7 @@ import PageLoader from "@/components/PageLoader";
 import { ShrideModalProvider } from "@/hooks/useShrideModal";
 import { Toaster } from "react-hot-toast";
 import { LocationProvider } from "@/context/LocationContext";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Shride App - Your Ultimate 5 star mobility app.",
@@ -29,6 +30,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* <Script
+        src={`https://embed.tawk.to/6981fb982807131c36765928/1jghrtju1`}
+        strategy="afterInteractive"
+      />
+      <Script id="tawk" strategy="afterInteractive">
+        {`
+           var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+          var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+          s1.async=true;
+          s1.src='https://embed.tawk.to/6981fb982807131c36765928/1jghrtju1';
+          s1.charset='UTF-8';
+          s1.setAttribute('crossorigin','*');
+          s0.parentNode.insertBefore(s1,s0);
+          })();
+          `}
+      </Script> */}
+
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-K0NY0FWW3Y`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-K0NY0FWW3Y');
+          `}
+      </Script>
       <body>
         <Toaster />
         <div className="w-full bg-white min-h-screen overflow-hidden">
